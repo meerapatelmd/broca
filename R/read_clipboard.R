@@ -3,7 +3,7 @@
 #'
 read_clipboard <- function(header = TRUE, log = TRUE, log_details = "") {
     if (log == TRUE) {
-        log_this(path_to_file = csv_fn,
+        log_this(path_to_file = "",
                  activity = "input",
                  comment = "clipboard",
                  details = log_details)

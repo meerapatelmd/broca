@@ -5,7 +5,7 @@
 simply_read_csv <-
         function(path_to_csv, log = TRUE, log_details = "") {
             if (log == TRUE) {
-                log_this(path_to_file = csv_fn,
+                log_this(path_to_file = path_to_csv,
                          activity = "input",
                          comment = "",
                          details = log_details)
