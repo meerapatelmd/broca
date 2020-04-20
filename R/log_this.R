@@ -1,6 +1,6 @@
 #' Universal log function to use to log items
-#' @import dplyr
-#' @import readr
+#' @importFrom stampede stamp_this
+#' @importFrom readr write_lines
 #' @export
 
 log_this <-
@@ -10,7 +10,7 @@ log_this <-
                  details = "") {
 
                 if (!file.exists("log.md")) {
-                    readr::write_lines(paste(mirCat::stamp_this(),
+                    readr::write_lines(paste(stampede::stamp_this(),
                                        path_to_file,
                                        activity,
                                        comment,
@@ -18,7 +18,7 @@ log_this <-
                                        sep = "\n",
                                        path = "log.md")
                 } else {
-                    readr::write_lines(paste(mirCat::stamp_this(),
+                    readr::write_lines(paste(stampede::stamp_this(),
                                              path_to_file,
                                              activity,
                                              comment,
