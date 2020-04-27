@@ -4,7 +4,7 @@
 #' @export
 
 write_temp_csv <-
-        function(x, ..., log_details = NULL) {
+        function(x, path, ..., log_details = NULL) {
 
                 if (!is.null(log_details)) {
                         log_this(path_to_file = path,
