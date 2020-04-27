@@ -5,7 +5,7 @@
 #' @export
 
 simply_write_csv <-
-        function(x, path, log_details = NULL) {
+        function(x, path, ..., log_details = NULL) {
 
                 if (!is.null(log_details)) {
                         log_this(path_to_file = path,
@@ -15,5 +15,6 @@ simply_write_csv <-
                 }
 
                 readr::write_csv(x = x,
-                                 path = path)
+                                 path = path,
+                                 ...)
         }
