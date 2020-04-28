@@ -4,16 +4,18 @@
 #' @export
 
 write_temp_csv <-
-        function(x, path, ..., log_details = NULL) {
+        function(x, log_details = NULL, ...) {
+
+
+                temp_file <- tempfile(fileext = ".csv")
 
                 if (!is.null(log_details)) {
-                        log_this(path_to_file = path,
+                        log_this(path_to_file = temp_file,
                                  activity = "output",
                                  comment = "",
                                  details = log_details)
                 }
 
-                temp_file <- tempfile(fileext = ".csv")
                 simply_write_csv(x = x,
                                  path = temp_file,
                                  ...)
