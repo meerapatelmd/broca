@@ -3,9 +3,7 @@
 #' @param xlsx_file path to Excel file
 #' @param remove TRUE if the source Excel file should be deleted. Defaults to FALSE.
 #' @importFrom cave strip_fn
-#' @importFrom broca read_full_excel
 #' @importFrom secretary typewrite_error
-#' @importFrom broca simply_write_csv
 #' @export
 
 convert_xlsx_to_csv <-
