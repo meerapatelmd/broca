@@ -12,7 +12,7 @@ convert_xlsx_to_csv <-
                 input_data <- read_full_excel(full_xlsx_fn = xlsx_file,
                                                      log_details = paste0("converting ", xlsx_file, " to ", csv_fn))
 
-                if (length(input_data) > 0) {
+                if (length(input_data) > 1) {
                         secretary::typewrite_error(xlsx_file,
                                                    "has more than 1 tabs.")
                 } else {
