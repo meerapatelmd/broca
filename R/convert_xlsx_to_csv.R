@@ -11,7 +11,7 @@
 convert_xlsx_to_csv <-
         function(xlsx_file, remove = FALSE) {
                 csv_fn <- paste0(cave::strip_fn(xlsx_file, rm_path = FALSE), ".csv")
-                input_data <- broca::read_full_excel(full_xlsx_fn = xlsx_file,
+                input_data <- read_full_excel(full_xlsx_fn = xlsx_file,
                                                      log_details = paste0("converting ", xlsx_file, " to ", csv_fn))
 
                 if (length(input_data) > 0) {
@@ -19,7 +19,7 @@ convert_xlsx_to_csv <-
                                                    "has more than 1 tabs.")
                 } else {
                         output_data <- input_data[[1]]
-                        broca::simply_write_csv(x = output_data,
+                        simply_write_csv(x = output_data,
                                                 path = csv_fn,
                                                 log_details = paste0("converted from ", xlsx_file))
 
