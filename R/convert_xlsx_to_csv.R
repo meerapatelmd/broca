@@ -22,7 +22,7 @@ convert_xlsx_to_csv <-
                                                 log_details = paste0("converted from ", xlsx_file))
 
                         if (remove == TRUE) {
-                                file.remove(xlsx_fn)
+                                file.remove(xlsx_file)
                         }
                         return(csv_fn)
                 }
