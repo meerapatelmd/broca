@@ -28,7 +28,7 @@ add_sheet_to_csv <-
                                         glitter::untracked_files(path_to_local_repo = path_to_file))) {
                                 glitter::add_commit_some(path_to_local_repo = path_to_file,
                                                          filenames = file,
-                                                         commit_message = paste0("update ", file, " before combining it with new sheet ", new_sheet_name,))
+                                                         commit_message = paste0("update ", file, " before combining it with new sheet ", new_sheet_name))
 
                         }
 
