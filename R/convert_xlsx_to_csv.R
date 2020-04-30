@@ -9,6 +9,7 @@
 convert_xlsx_to_csv <-
         function(xlsx_file, remove = FALSE) {
                 csv_fn <- paste0(cave::strip_fn(xlsx_file, rm_path = FALSE), ".csv")
+
                 input_data <- read_full_excel(full_xlsx_fn = xlsx_file,
                                                      log_details = paste0("converting ", xlsx_file, " to ", csv_fn))
 
