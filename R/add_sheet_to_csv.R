@@ -35,6 +35,7 @@ add_sheet_to_csv <-
                         data <- list()
 
                         data[[1]] <- simply_read_csv(path_to_csv = file)
+                        names(data)[1] <- cave::strip_fn(file)
                         data[[1+length(data)]] <- dataframe
                         names(data)[length(data)] <- new_sheet_name
 
