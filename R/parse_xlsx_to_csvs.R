@@ -20,17 +20,18 @@ parse_xlsx_to_csvs <-
 
                         list_names <- names(xlsx_data)
 
-                        names(xlsx_data) <- paste0(cave::strip_fn(xlsx_fn, rm_path = FALSE), "_", list_names, ".csv")
+                        new_csv_fns <- paste0(cave::strip_fn(xlsx_fn, rm_path = FALSE), "_", list_names, ".csv")
 
-                        xlsx_data %>%
-                                purrr::map(function(x) simply_write_csv(x = x,
-                                                                        path = names(x),
-                                                                        log_details = "converted xlsx to csv"))
-
+                        for (i in 1:length(xlsx_data)) {
+                                simply_write_csv(x = xlsx_data[[i]],
+                                                 path = new_csv_fns[i],
+                                                 log_details = paste0("convert tab ", i, " in ", xlsx_fn, " to ", new_csv_fns[i]))
+                        }
                         if (remove == TRUE) {
                                 file.remove(xlsx_fn)
                         }
 
+                        return(new_csv_fns)
                 }
 
         }
