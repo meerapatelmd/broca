@@ -16,6 +16,8 @@ add_sheet_to_csv <-
                  dataframe,
                  commit = TRUE)    {
 
+                stopifnot(grepl("[.]csv$", file) == TRUE)
+
                 new_xlsx_fn <- paste0(cave::strip_fn(file, rm_path = FALSE), ".xlsx")
 
                 if (commit == TRUE) {
