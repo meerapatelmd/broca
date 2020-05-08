@@ -12,7 +12,6 @@ LazyData: true
 RoxygenNote: 7.1.0
 Imports: 
     glitter,
-    openxlsx,
     cave,
     purrr,
     readr,
