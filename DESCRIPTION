@@ -20,7 +20,8 @@ Imports:
     secretary,
     stampede,
     xlsx,
-    readxl
+    readxl,
+    openxlsx
 Remotes: 
     patelm9/glitter,
     patelm9/cave,

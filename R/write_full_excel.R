@@ -2,7 +2,7 @@
 #' @param x data to write, either as a list or a single dataframe
 #' @param file path to xlsx file
 #' @param log_details log detail or comment to include in the log entry. NULL if no log entry is required.
-#' @importFrom xlsx write.xlsx
+#' @importFrom openxlsx write.xlsx
 #' @export
 
 write_full_excel <-
@@ -17,7 +17,7 @@ write_full_excel <-
                                  details = log_details)
                 }
 
-                xlsx::write.xlsx(x = x,
+                openxlsx::write.xlsx(x = x,
                                      file = file,
                                  row.names = FALSE)
         }
