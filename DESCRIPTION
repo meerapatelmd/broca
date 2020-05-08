@@ -22,10 +22,10 @@ Imports:
     stampede,
     xlsx
 Remotes: 
-    patelm9/glitter
-    patelm9/cave
-    patelm9/rubix
-    patelm9/secretary
+    patelm9/glitter,
+    patelm9/cave,
+    patelm9/rubix,
+    patelm9/secretary,
     patelm9/stampede
     
   
