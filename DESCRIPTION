@@ -20,7 +20,8 @@ Imports:
     rubix,
     secretary,
     stampede,
-    xlsx
+    xlsx,
+    readxl
 Remotes: 
     patelm9/glitter,
     patelm9/cave,

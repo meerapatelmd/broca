@@ -1,6 +1,20 @@
 2020-04-27 12:56:04 	File Created
 
 # Typewrite Messages
+Timestamp:	2020-05-08 10:33:38
+Local R Script:	~/GitHub/Public-Packages/broca/DESCRIPTION
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-05-08 10:33:38
+Local R Script:	~/GitHub/Public-Packages/broca/DESCRIPTION
+Typewrite Message:	No untracked files in this repo.
+
+Timestamp:	2020-05-08 10:17:51
+Local R Script:	~/GitHub/Public-Packages/broca/DESCRIPTION
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-05-08 10:17:51
+Local R Script:	~/GitHub/Public-Packages/broca/DESCRIPTION
+Typewrite Message:	No untracked files in this repo.
+
 Timestamp:	2020-05-08 10:17:20
 Local R Script:	~/GitHub/Public-Packages/broca/R/view_as_xlsx.R
 Typewrite Message:	No deleted files in this repo.
