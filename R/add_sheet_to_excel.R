@@ -6,6 +6,7 @@
 #' @importFrom glitter modified_files
 #' @importFrom glitter untracked_files
 #' @importFrom glitter add_commit_some
+#' @importFrom xlsx write.xlsx
 #' @export
 
 add_sheet_to_excel <-
@@ -30,28 +31,22 @@ add_sheet_to_excel <-
 
                         }
 
-                        data <- read_full_excel(file)
-                        data[[1+length(data)]] <- dataframe
-                        names(data)[length(data)] <- new_sheet_name
 
-                        write_full_excel(x = data,
-                                                file = file)
+                        xlsx::write.xlsx(x = dataframe,
+                                         file = file,
+                                         sheetName = new_sheet_name,
+                                         append= TRUE)
+
 
                         add_commit_some(path_to_local_repo = path_to_file,
                                                  filenames = file,
                                                  commit_message = paste0("update ", file, " after adding new sheet ", new_sheet_name))
                 } else {
-                        path_to_file <- path(file)
-                        if (path_to_file == "") {
-                                path_to_file <- getwd()
-                        }
 
-                        data <- read_full_excel(file)
-                        data[[1+length(data)]] <- dataframe
-                        names(data)[length(data)] <- new_sheet_name
-
-                        write_full_excel(x = data,
-                                                file = file)
+                        xlsx::write.xlsx(x = dataframe,
+                                         file = file,
+                                         sheetName = new_sheet_name,
+                                         append= TRUE)
 
                 }
         }
