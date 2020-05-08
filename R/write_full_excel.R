@@ -18,6 +18,5 @@ write_full_excel <-
                 }
 
                 openxlsx::write.xlsx(x = x,
-                                     file = file,
-                                 row.names = FALSE)
+                                     file = file)
         }
