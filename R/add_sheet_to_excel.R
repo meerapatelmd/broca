@@ -32,10 +32,14 @@ add_sheet_to_excel <-
                         }
 
 
-                        xlsx::write.xlsx(x = dataframe,
-                                         file = file,
-                                         sheetName = new_sheet_name,
-                                         append= TRUE)
+                        wb <- read_full_excel(full_xlsx_fn = file)
+
+                        wb[[length(wb)+1]] <- dataframe
+                        names(wb)[length(wb)] <- new_sheet_name
+
+
+                        write_full_excel(x = wb,
+                                         file = file)
 
 
                         add_commit_some(path_to_local_repo = path_to_file,
@@ -43,10 +47,14 @@ add_sheet_to_excel <-
                                                  commit_message = paste0("update ", file, " after adding new sheet ", new_sheet_name))
                 } else {
 
-                        xlsx::write.xlsx(x = dataframe,
-                                         file = file,
-                                         sheetName = new_sheet_name,
-                                         append= TRUE)
+                        wb <- read_full_excel(full_xlsx_fn = file)
+
+                        wb[[length(wb)+1]] <- dataframe
+                        names(wb)[length(wb)] <- new_sheet_name
+
+
+                        write_full_excel(x = wb,
+                                         file = file)
 
                 }
         }

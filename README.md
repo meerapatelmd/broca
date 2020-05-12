@@ -1,6 +1,20 @@
 2020-04-27 12:56:04 	File Created
 
 # Typewrite Messages
+Timestamp:	2020-05-12 19:26:42
+Local R Script:	~/GitHub/Public-Packages/broca/R/add_sheet_to_excel.R
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-05-12 19:26:41
+Local R Script:	~/GitHub/Public-Packages/broca/R/add_sheet_to_excel.R
+Typewrite Message:	No untracked files in this repo.
+
+Timestamp:	2020-05-08 11:12:13
+Local R Script:	~/GitHub/Public-Packages/broca/R/write_full_excel.R
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-05-08 11:12:13
+Local R Script:	~/GitHub/Public-Packages/broca/R/write_full_excel.R
+Typewrite Message:	No untracked files in this repo.
+
 Timestamp:	2020-05-08 11:10:56
 Local R Script:	~/GitHub/Public-Packages/broca/DESCRIPTION
 Typewrite Message:	No deleted files in this repo.
