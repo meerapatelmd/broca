@@ -6,7 +6,6 @@
 #' @importFrom glitter modified_files
 #' @importFrom glitter untracked_files
 #' @importFrom glitter add_commit_some
-#' @importFrom xlsx write.xlsx
 #' @export
 
 add_sheet_to_excel <-
@@ -43,8 +42,8 @@ add_sheet_to_excel <-
 
 
                         add_commit_some(path_to_local_repo = path_to_file,
-                                                 filenames = file,
-                                                 commit_message = paste0("update ", file, " after adding new sheet ", new_sheet_name))
+                                        filenames = file,
+                                        commit_message = paste0("update ", file, " after adding new sheet ", new_sheet_name))
                 } else {
 
                         wb <- read_full_excel(full_xlsx_fn = file)

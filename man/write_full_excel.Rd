@@ -4,7 +4,7 @@
 \alias{write_full_excel}
 \title{Write an Excel with a Log Entry}
 \usage{
-write_full_excel(x, file, log_details = NULL)
+write_full_excel(x, file, log = TRUE, log_details = "", ...)
 }
 \arguments{
 \item{x}{data to write, either as a list or a single dataframe}
@@ -12,6 +12,8 @@ write_full_excel(x, file, log_details = NULL)
 \item{file}{path to xlsx file}
 
 \item{log_details}{log detail or comment to include in the log entry. NULL if no log entry is required.}
+
+\item{...}{optional parameters passed to openxlsx::write.xlsx}
 }
 \description{
 Write an Excel with a Log Entry

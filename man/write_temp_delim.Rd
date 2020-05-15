@@ -4,10 +4,14 @@
 \alias{write_temp_delim}
 \title{A simply write txt to a temp file with a logging feature}
 \usage{
-write_temp_delim(x, delimiter, log_details = NULL, ...)
+write_temp_delim(x, delimiter, log = TRUE, log_details = "", ...)
 }
 \arguments{
 \item{x}{data to write}
+
+\item{delimiter}{delimiter for the readr::write_delim argument}
+
+\item{...}{additional arguments for the readr::write_delim argument.}
 }
 \value{
 path to temp txt file

@@ -4,7 +4,7 @@
 \alias{log_this}
 \title{Universal log function to use to log items}
 \usage{
-log_this(path_to_file, activity, comment = "", details = "")
+log_this(path_to_file, activity_type, function_used = "", details = "")
 }
 \description{
 Universal log function to use to log items

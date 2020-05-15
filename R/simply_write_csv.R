@@ -5,16 +5,16 @@
 #' @export
 
 simply_write_csv <-
-        function(x, path, ..., log_details = NULL) {
+        function(x, file, ..., log = TRUE, log_details = "") {
 
-                if (!is.null(log_details)) {
-                        log_this(path_to_file = path,
-                                 activity = "output",
-                                 comment = "",
+                if (log == TRUE) {
+                        log_this(path_to_file = file,
+                                 activity_type = "write",
+                                 function_used = "simply_write_csv",
                                  details = log_details)
                 }
 
                 readr::write_csv(x = x,
-                                 path = path,
+                                 path = file,
                                  ...)
         }

@@ -9,10 +9,10 @@ read_full_excel <-
         function(full_xlsx_fn, log = TRUE, log_details = "") {
 
             if (log == TRUE) {
-                log_this(path_to_file = full_xlsx_fn,
-                         activity = "input",
-                         comment = "",
-                         details = log_details)
+                            log_this(path_to_file = full_xlsx_fn,
+                                     activity_type = "read",
+                                     details = log_details,
+                                     function_used = "read_full_excel")
             }
                         return(
                                 full_xlsx_fn %>%

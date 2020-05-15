@@ -4,10 +4,12 @@
 \alias{write_temp_csv}
 \title{A simply write csv to a temp file with a logging feature}
 \usage{
-write_temp_csv(x, log_details = NULL, ...)
+write_temp_csv(x, log = TRUE, log_details = "", ...)
 }
 \arguments{
 \item{x}{data to write}
+
+\item{...}{arguments for readr::write_csv}
 }
 \description{
 A call to simply_write_csv, returning the path to the temp file

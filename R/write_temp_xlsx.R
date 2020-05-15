@@ -4,15 +4,15 @@
 #' @export
 
 write_temp_xlsx <-
-        function(x, log_details = NULL, ...) {
+        function(x, log = TRUE, log_details = "") {
 
 
                 temp_file <- tempfile(fileext = ".xlsx")
 
-                if (!is.null(log_details)) {
+                if (log == TRUE) {
                         log_this(path_to_file = temp_file,
-                                 activity = "output",
-                                 comment = "",
+                                 activity_type = "write",
+                                 function_used = "write_temp_xlsx",
                                  details = log_details)
                 }
 
