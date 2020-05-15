@@ -1,6 +1,6 @@
 #' Universal log function to use to log items
 #' @importFrom stampede stamp_this
-#' @importFrom readr write_lines
+#' @importFrom readr write_tsv
 #' @export
 
 log_this <-
@@ -10,23 +10,25 @@ log_this <-
                  details = "") {
 
                 if (!file.exists("log.md")) {
-                    readr::write_lines(paste(stampede::stamp_this(),
-                                             activity_type,
-                                             function_used,
-                                             path_to_file,
-                                             details,
-                                             collapse = "\t"),
-                                       sep = "\n",
-                                       path = "log.md")
-                } else {
-                    readr::write_lines(paste(stampede::stamp_this(),
-                                             activity_type,
-                                             function_used,
-                                             path_to_file,
-                                             details,
-                                             collapse = "\t"),
-                                       sep = "\n",
+
+                        new_log <- rubix::blank_tibble(column_names =  c(
+                                                                         "Timestamp",
+                                                                         "Activity Type",
+                                                                         "Function",
+                                                                         "File",
+                                                                         "Details"
+                                                                         )
+                                                       )
+
+
+                        readr::write_tsv(new_log,
+                                         path = "log.md")
+                }
+                    readr::write_tsv(tibble::tibble(Timestamp = stampede::stamp_this(),
+                                             `Activity Type` = activity_type,
+                                             Function = function_used,
+                                             File = path_to_file,
+                                             Details = details),
                                        path = "log.md",
                                        append = TRUE)
-                }
         }
