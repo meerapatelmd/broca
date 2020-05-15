@@ -9,22 +9,9 @@ log_this <-
                  function_used = "",
                  details = "") {
 
-                if (!file.exists("log.md")) {
+                create_log.md()
 
-                        new_log <- rubix::blank_tibble(column_names =  c(
-                                                                         "Timestamp",
-                                                                         "Activity Type",
-                                                                         "Function",
-                                                                         "File",
-                                                                         "Details"
-                                                                         )
-                                                       )
-
-
-                        readr::write_tsv(new_log,
-                                         path = "log.md")
-                }
-                    readr::write_tsv(tibble::tibble(Timestamp = stampede::stamp_this(),
+                readr::write_tsv(tibble::tibble(Timestamp = stampede::stamp_this(),
                                              `Activity Type` = activity_type,
                                              Function = function_used,
                                              File = path_to_file,
