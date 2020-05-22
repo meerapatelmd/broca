@@ -24,7 +24,7 @@ parse_xlsx_to_csvs <-
 
                         for (i in 1:length(xlsx_data)) {
                                 simply_write_csv(x = xlsx_data[[i]],
-                                                 path = new_csv_fns[i],
+                                                 file = new_csv_fns[i],
                                                  log_details = paste0("convert tab ", i, " in ", xlsx_fn, " to ", new_csv_fns[i]))
                         }
                         if (remove == TRUE) {
