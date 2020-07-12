@@ -19,7 +19,7 @@ convert_xlsx_to_csv <-
                 } else {
                         output_data <- input_data[[1]]
                         simply_write_csv(x = output_data,
-                                                path = csv_fn,
+                                                file = csv_fn,
                                                 log_details = paste0("converted from ", xlsx_file))
 
                         if (remove == TRUE) {
