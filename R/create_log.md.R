@@ -1,7 +1,12 @@
-#' Create Log.md if it doesn't exist
-#' @importFrom rubix blank_tibble
-#' @importFrom readr write_tsv
+#' @title
+#' Create log.md if it doesn't exist
+#' @seealso
+#'  \code{\link[tibble]{tribble}}
+#'  \code{\link[readr]{write_delim}}
+#' @rdname create_log.md
 #' @export
+#' @importFrom tibble tribble
+#' @importFrom readr write_tsv
 
 create_log.md <-
         function() {
