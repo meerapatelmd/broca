@@ -2,10 +2,14 @@
 % Please edit documentation in R/create_log.md.R
 \name{create_log.md}
 \alias{create_log.md}
-\title{Create Log.md if it doesn't exist}
+\title{Create log.md if it doesn't exist}
 \usage{
 create_log.md()
 }
 \description{
-Create Log.md if it doesn't exist
+Create log.md if it doesn't exist
+}
+\seealso{
+\code{\link[tibble]{tribble}}
+ \code{\link[readr]{write_delim}}
 }

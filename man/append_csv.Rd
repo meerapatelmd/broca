@@ -2,13 +2,23 @@
 % Please edit documentation in R/append_csv.R
 \name{append_csv}
 \alias{append_csv}
-\title{Append a dataframe to a csv by binding rows to prevent column mismatch}
+\title{Append a data frame to a csv file}
 \usage{
-append_csv(csv_fn, dataframe, log = TRUE, log_details = "")
+append_csv(csv_fn, .data, log = TRUE, log_details = "")
 }
 \arguments{
-\item{fn}{filename to be appended}
+\item{csv_fn}{csv file}
+
+\item{.data}{data frame to append}
+
+\item{log}{PARAM_DESCRIPTION, Default: TRUE}
+
+\item{log_details}{PARAM_DESCRIPTION, Default: ''}
 }
 \description{
-Append a dataframe to a csv by binding rows to prevent column mismatch
+This function reads the data in a csv file into the R environment and binds the input data frame, and overwrites the file with the combined data to maintain column ordering of the input and not loosing any extra columns present in the input data frame.
+}
+\seealso{
+\code{\link[readr]{read_delim}},\code{\link[readr]{write_delim}}
+ \code{\link[dplyr]{mutate_all}},\code{\link[dplyr]{bind}}
 }
