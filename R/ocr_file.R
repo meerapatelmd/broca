@@ -15,7 +15,7 @@ ocr_file <-
                                 output <- pdftools::pdf_ocr_text(pdf = pdf_fn,
                                                        pages = i)
                                 if (i == 1) {
-                                        cat(paste0(mirCat::stamp_this(), "\t", "File created.\n"), sep = "\n\n", file = txt_fn)
+                                        cat(paste0(as.character(Sys.time()), "\t", "File created.\n"), sep = "\n\n", file = txt_fn)
                                         cat(paste0("PAGE ", i), sep = "\n", file = txt_fn, append = TRUE)
                                         cat(output, sep = "\n\n\n", file = txt_fn, append = TRUE)
                                 } else {
@@ -29,7 +29,7 @@ ocr_file <-
                                 output <- pdftools::pdf_ocr_text(pdf = pdf_fn,
                                                                  pages = i)
                                 if (i == 1) {
-                                        cat(paste0(mirCat::stamp_this(), "\t", "File created.\n"), sep = "\n\n", file = txt_fn)
+                                        cat(paste0(as.character(Sys.time()), "\t", "File created.\n"), sep = "\n\n", file = txt_fn)
                                         cat(paste0("PAGE ", i), sep = "\n", file = txt_fn, append = TRUE)
                                         cat(output, sep = "\n\n\n", file = txt_fn, append = TRUE)
                                 } else {
