@@ -12,9 +12,6 @@ addons:
       - libsecret-1-dev
       - libsodium-dev
 
-before_install:
-  - Rscript -e 'remotes::install_github("meerpatelmd/cave")'
-
 jobs:
   include:
   - r: 3.4
