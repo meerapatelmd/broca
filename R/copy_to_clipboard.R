@@ -6,11 +6,12 @@
 #' @rdname copy_to_clipboard
 #' @family clipboard
 #' @export
+#' @importFrom utils write.table
 
 copy_to_clipboard <-
         function(dataframe, log = TRUE, log_details = "") {
                             clip <- pipe("pbcopy", "wb")
-                            write.table(dataframe, clip, sep = "\t", row.names = FALSE)
+                            utils::write.table(dataframe, clip, sep = "\t", row.names = FALSE)
                             close(clip)
 
                             if (log == TRUE) {

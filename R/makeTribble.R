@@ -3,7 +3,7 @@
 #' @param .data data frame
 #' @seealso
 #'  \code{\link[dplyr]{mutate_all}}
-#' @rdname print.tribble
+#' @rdname makeTribble
 #' @export
 #' @importFrom dplyr mutate_all
 

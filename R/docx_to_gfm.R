@@ -1,7 +1,7 @@
 #' Converts all docx files in the working directory to markdown
 #' @param docx name of the input docx filename
 #' @importFrom rmarkdown pandoc_convert
-#' @import devtools
+#' @importFrom cave strip_fn
 #' @export
 
 docx_to_gfm <-
@@ -16,7 +16,7 @@ docx_to_gfm <-
 
                 rmarkdown::pandoc_convert(input = docx,
                                           to="gfm",
-                                          output = paste0(strip_fn(docx, rm_path = FALSE), ".md"),
+                                          output = paste0(cave::strip_fn(docx, rm_path = FALSE), ".md"),
                                           options=c("--extract-media=."),
                                           verbose = TRUE)
 

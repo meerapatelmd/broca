@@ -12,6 +12,9 @@ RoxygenNote: 7.1.1
 Imports: 
     cave,
     purrr,
+    stringr,
+    dplyr,
+    tibble,
     readr,
     rmarkdown,
     xlsx,

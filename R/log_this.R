@@ -9,7 +9,6 @@
 #' @export
 #' @importFrom readr write_tsv
 #' @importFrom tibble tibble
-#' @importFrom stampede stamp_this
 
 log_this <-
         function(path_to_file,

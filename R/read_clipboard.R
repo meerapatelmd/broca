@@ -6,6 +6,7 @@
 #' @rdname read_clipboard
 #' @family clipboard
 #' @export
+#' @importFrom utils read.table
 
 read_clipboard <-
     function(header = TRUE, log = TRUE, log_details = "") {
@@ -17,8 +18,8 @@ read_clipboard <-
                         }
 
                             if (header == TRUE) {
-                                    read.table(pipe("pbpaste"), sep= "\t", header= TRUE)
+                                    utils::read.table(pipe("pbpaste"), sep= "\t", header= TRUE)
                             } else {
-                                    read.table(pipe("pbpaste"), sep= "\t", header= FALSE)
+                                    utils::read.table(pipe("pbpaste"), sep= "\t", header= FALSE)
                             }
 }
