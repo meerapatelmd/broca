@@ -21,7 +21,8 @@ Imports:
     stampede,
     xlsx,
     readxl,
-    openxlsx
+    openxlsx,
+    magrittr
 Remotes: 
     patelm9/glitter,
     patelm9/cave,
