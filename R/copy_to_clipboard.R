@@ -1,4 +1,10 @@
-#' Copies dataframe copied to clipboard
+#' @title
+#' Copy a data frame to the clipboard
+#' @param dataframe     dataframe
+#' @param log           Log this function call to a log.md file? Default: TRUE
+#' @param log_details   If log is TRUE, additional notes to include with the log entry. PARAM_DESCRIPTION, Default: ''
+#' @rdname copy_to_clipboard
+#' @family clipboard
 #' @export
 
 copy_to_clipboard <-

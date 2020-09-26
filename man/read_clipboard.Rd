@@ -2,10 +2,22 @@
 % Please edit documentation in R/read_clipboard.R
 \name{read_clipboard}
 \alias{read_clipboard}
-\title{Reads from clipboard}
+\title{Read a dataframe the clipboard}
 \usage{
 read_clipboard(header = TRUE, log = TRUE, log_details = "")
 }
-\description{
-Reads from clipboard
+\arguments{
+\item{header}{TRUE if dataframe has a header. Default: TRUE}
+
+\item{log}{Log this function call to a log.md file? Default: TRUE}
+
+\item{log_details}{If log is TRUE, additional notes to include with the log entry. Default: ''}
 }
+\description{
+Read a dataframe the clipboard
+}
+\seealso{
+Other clipboard: 
+\code{\link{copy_to_clipboard}()}
+}
+\concept{clipboard}

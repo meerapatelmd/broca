@@ -7,7 +7,6 @@
 #'  \code{\link[stampede]{stamp_this}}
 #' @rdname log_this
 #' @export
-#' @importFrom rubix blank_tibble
 #' @importFrom readr write_tsv
 #' @importFrom tibble tibble
 #' @importFrom stampede stamp_this
@@ -20,7 +19,7 @@ log_this <-
 
                 create_log.md()
 
-                readr::write_tsv(tibble::tibble(Timestamp = stampede::stamp_this(),
+                readr::write_tsv(tibble::tibble(Timestamp = Sys.time(),
                                              `Activity Type` = activity_type,
                                              Function = function_used,
                                              File = path_to_file,

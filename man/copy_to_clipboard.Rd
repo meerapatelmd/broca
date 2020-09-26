@@ -2,10 +2,22 @@
 % Please edit documentation in R/copy_to_clipboard.R
 \name{copy_to_clipboard}
 \alias{copy_to_clipboard}
-\title{Copies dataframe copied to clipboard}
+\title{Copy a data frame to the clipboard}
 \usage{
 copy_to_clipboard(dataframe, log = TRUE, log_details = "")
 }
-\description{
-Copies dataframe copied to clipboard
+\arguments{
+\item{dataframe}{dataframe}
+
+\item{log}{Log this function call to a log.md file? Default: TRUE}
+
+\item{log_details}{If log is TRUE, additional notes to include with the log entry. PARAM_DESCRIPTION, Default: ''}
 }
+\description{
+Copy a data frame to the clipboard
+}
+\seealso{
+Other clipboard: 
+\code{\link{read_clipboard}()}
+}
+\concept{clipboard}

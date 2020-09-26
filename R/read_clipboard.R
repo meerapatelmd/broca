@@ -1,6 +1,12 @@
-#' Reads from clipboard
+#' @title
+#' Read a dataframe the clipboard
+#' @param header        TRUE if dataframe has a header. Default: TRUE
+#' @param log           Log this function call to a log.md file? Default: TRUE
+#' @param log_details   If log is TRUE, additional notes to include with the log entry. Default: ''
+#' @rdname read_clipboard
+#' @family clipboard
 #' @export
-#'
+
 read_clipboard <-
     function(header = TRUE, log = TRUE, log_details = "") {
                         if (log == TRUE) {
@@ -11,8 +17,8 @@ read_clipboard <-
                         }
 
                             if (header == TRUE) {
-                                    return(read.table(pipe("pbpaste"), sep= "\t", header= TRUE))
+                                    read.table(pipe("pbpaste"), sep= "\t", header= TRUE)
                             } else {
-                                    return(read.table(pipe("pbpaste"), sep= "\t", header= FALSE))
+                                    read.table(pipe("pbpaste"), sep= "\t", header= FALSE)
                             }
 }
