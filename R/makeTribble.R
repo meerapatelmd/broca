@@ -1,5 +1,5 @@
 #' @title
-#' Print a tribble skeleton
+#' Make a tribble skeleton
 #' @param .data data frame
 #' @seealso
 #'  \code{\link[dplyr]{mutate_all}}
@@ -9,7 +9,7 @@
 
 
 
-print.tribble <-
+makeTribble <-
         function(.data) {
 
                 .data <-
