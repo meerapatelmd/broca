@@ -17,8 +17,8 @@ jobs:
   include:
   - r: 3.4
     before_deploy:
-    - Rscript -e 'remotes::install_cran("pkgdown")'
+    - Rscript -e 'remotes::install_github("r-lib/pkgdown")'
     deploy:
       provider: script
-      script: Rscript -e 'pkgdown::deploy_site_github()'
+      script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
       skip_cleanup: true
