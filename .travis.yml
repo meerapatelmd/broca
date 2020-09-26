@@ -4,6 +4,14 @@ sudo: false
 dist: xenial
 cache: packages
 
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:chris-lea/libsodium'
+    packages:
+      - libsecret-1-dev
+      - libsodium-dev
+
 before_install:
   - Rscript -e 'remotes::install_github("meerpatelmd/cave")'
 
