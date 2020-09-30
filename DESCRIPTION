@@ -1,5 +1,7 @@
 Package: broca
 Title: Helpers for Reading and Writing Data  
+URL: https://meerapatelmd.github.io/broca/, https://github.com/meerapatelmd/broca/
+BugReports: https://github.com/meerapatelmd/broca/issues/
 Version: 1.0.0
 Authors@R: person("Meera", "Patel, MD", email = "patelmeeray@gmail.com", role = c("aut", "cre"),
                           comment = c(ORCID = "0000-0002-3401-3948")) 
@@ -20,5 +22,3 @@ Imports:
     readxl,
     openxlsx,
     magrittr
-Remotes: 
-    meerapatelmd/cave
