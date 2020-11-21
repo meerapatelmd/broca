@@ -2,8 +2,8 @@
 #' @export
 
 is_excel <-
-        function(filename) {
-                grepl("[.]xlsx$", filename, ignore.case = TRUE)
+        function(file) {
+                grepl("[.]xlsx$", file, ignore.case = TRUE)
         }
 
 
@@ -15,7 +15,7 @@ is_excel <-
 
 
 #' Reads entire XLSX file into a list of dataframes
-#' @param full_xlsx_fn full path to xlsx filename
+#' @param full_xlsx_fn full path to xlsx file
 #' @import readxl
 #' @import purrr
 #' @export

@@ -4,7 +4,24 @@
 \alias{simply_read_csv}
 \title{Reads a csv}
 \usage{
-simply_read_csv(path_to_csv, log = FALSE, log_details = "")
+simply_read_csv(
+  file,
+  col_names = TRUE,
+  col_types = readr::cols(.default = "c"),
+  locale = default_locale(),
+  na = c("", "NA"),
+  quoted_na = TRUE,
+  quote = "\\"",
+  comment = "",
+  trim_ws = TRUE,
+  skip = 0,
+  n_max = Inf,
+  guess_max = min(1000, n_max),
+  progress = show_progress(),
+  skip_empty_rows = TRUE,
+  log = FALSE,
+  log_details = ""
+)
 }
 \description{
 Reads a csv

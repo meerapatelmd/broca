@@ -4,7 +4,7 @@
 \alias{is_excel}
 \title{Is the file an excel file?}
 \usage{
-is_excel(filename)
+is_excel(file)
 }
 \description{
 Is the file an excel file?

@@ -2,13 +2,13 @@
 % Please edit documentation in R/view.R
 \name{view_as_xlsx}
 \alias{view_as_xlsx}
-\title{View data in a temporary csv file}
+\title{View in Temporary Excel File}
 \usage{
 view_as_xlsx(data)
 }
 \value{
-path to the temporary filename for unlinking
+Path to the temporary filename for unlinking
 }
 \description{
-View a data in a csv opened in Excel without having to export to a permanant file.
+Write the data to a temporary xlsx file and open in Excel.
 }

@@ -7,7 +7,7 @@
 read_full_excel(full_xlsx_fn, log = FALSE, log_details = "")
 }
 \arguments{
-\item{full_xlsx_fn}{full path to xlsx filename}
+\item{full_xlsx_fn}{full path to xlsx file}
 }
 \description{
 Reads entire XLSX file into a list of dataframes

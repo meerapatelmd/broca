@@ -4,7 +4,7 @@
 \alias{is_csv}
 \title{Is the file an csv file?}
 \usage{
-is_csv(filename)
+is_csv(file)
 }
 \description{
 Is the file an csv file?

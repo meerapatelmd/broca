@@ -2,7 +2,7 @@
 % Please edit documentation in R/view.R
 \name{view_as_csv}
 \alias{view_as_csv}
-\title{View data in a temporary csv file}
+\title{View In Temporary CSV File}
 \usage{
 view_as_csv(data)
 }

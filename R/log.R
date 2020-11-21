@@ -17,7 +17,7 @@ create_log.md <-
                                         ~Details)
 
                         readr::write_tsv(new_log,
-                                         path = "log.md")
+                                         file = "log.md")
                 }
 
         }
@@ -47,7 +47,7 @@ log_this <-
                                              Function = function_used,
                                              File = path_to_file,
                                              Details = details),
-                                       path = "log.md",
+                                       file = "log.md",
                                        append = TRUE)
         }
 

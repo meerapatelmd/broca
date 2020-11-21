@@ -4,7 +4,17 @@
 \alias{simply_write_csv}
 \title{A simple write to csv with a logging feature}
 \usage{
-simply_write_csv(x, file, ..., log = FALSE, log_details = "")
+simply_write_csv(
+  x,
+  file,
+  na = "NA",
+  append = FALSE,
+  col_names = !append,
+  quote_escape = "double",
+  eol = "\\n",
+  log = FALSE,
+  log_details = ""
+)
 }
 \arguments{
 \item{x}{data to write}

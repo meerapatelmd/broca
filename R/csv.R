@@ -1,32 +1,54 @@
 #' Is the file an csv file?
 #' @export
-
 is_csv <-
-        function(filename) {
-                grepl("[.]csv$", filename, ignore.case = TRUE)
+        function(file) {
+                grepl("[.]csv$", file, ignore.case = TRUE)
         }
-
-
-
-
-
-
-
-
 
 #' Reads a csv
 #' @importFrom readr read_csv
 #' @export
 
 simply_read_csv <-
-        function(path_to_csv, log = FALSE, log_details = "") {
+        function(file,
+                 col_names = TRUE,
+                 col_types = readr::cols(.default = "c"),
+                 locale = default_locale(),
+                 na = c("", "NA"),
+                 quoted_na = TRUE,
+                 quote = "\"",
+                 comment = "",
+                 trim_ws = TRUE,
+                 skip = 0,
+                 n_max = Inf,
+                 guess_max = min(1000, n_max),
+                 progress = show_progress(),
+                 skip_empty_rows = TRUE,
+                 log = FALSE,
+                 log_details = "") {
+
+
             if (log == TRUE) {
                             log_this(path_to_file = path_to_csv,
                                      activity_type = "read",
                                      details = log_details,
                                      function_used = "simply_read_csv")
             }
-            readr::read_csv(path_to_csv, col_types = readr::cols(.default = "c"))
+
+            readr::read_csv(file = file,
+                            col_names = col_names,
+                            col_types = col_types,
+                            locale = locale,
+                            na = na,
+                            quoted_na = quoted_na,
+                            quote = quote,
+                            comment = comment,
+                            trim_ws = trim_ws,
+                            skip = skip,
+                            n_max = n_max,
+                            guess_max = guess_max,
+                            progress = progress,
+                            skip_empty_rows = skip_empty_rows)
         }
 
 
@@ -40,7 +62,16 @@ simply_read_csv <-
 #' @export
 
 simply_write_csv <-
-        function(x, file, ..., log = FALSE, log_details = "") {
+        function(x,
+                 file,
+                 na = "NA",
+                 append = FALSE,
+                 col_names = !append,
+                 quote_escape = "double",
+                 eol = "\n",
+                 log = FALSE,
+                 log_details = "") {
+
 
                 if (log == TRUE) {
                         log_this(path_to_file = file,
@@ -50,8 +81,12 @@ simply_write_csv <-
                 }
 
                 readr::write_csv(x = x,
-                                 path = file,
-                                 ...)
+                                 file = file,
+                                 na = na,
+                                 append = append,
+                                 col_names = col_names,
+                                 quote_escape = quote_escape,
+                                 eol = eol)
         }
 
 
