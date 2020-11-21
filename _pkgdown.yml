@@ -23,14 +23,17 @@ navbar:
       icon: fab fa-github fa-lg
       href: https://github.com/patelm9/broca/
 
+
 reference:
     - title: Clipboard
       contents:
-        - ends_with("clipboard")
-    - title: Read and Write
+      - ends_with("clipboard")
+    - title: Write
       contents:
-        - starts_with("write")
-        - contains("read")
+      - starts_with("write")
+    - title: Read
+      contents:
+      - contains("read")
 
 
 
