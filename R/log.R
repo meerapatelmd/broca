@@ -1,0 +1,65 @@
+#' @title
+#' Create log.md if it doesn't exist
+#' @seealso
+#'  \code{\link[tibble]{tribble}}
+#'  \code{\link[readr]{write_delim}}
+#' @rdname create_log.md
+#' @export
+#' @importFrom tibble tribble
+#' @importFrom readr write_tsv
+
+create_log.md <-
+        function() {
+                if (!file.exists("log.md")) {
+
+                        new_log <-
+                        tibble::tribble(~Timestamp,
+                                        ~`Activity Type`,
+                                        ~Function,
+                                        ~File,
+                                        ~Details)
+
+                        readr::write_tsv(new_log,
+                                         path = "log.md")
+                }
+
+        }
+
+
+
+
+
+
+#' @title
+#' Universal log function to use to log items
+#' @seealso
+#'  \code{\link[rubix]{blank_tibble}}
+#'  \code{\link[readr]{write_delim}}
+#'  \code{\link[tibble]{tibble}}
+#'  \code{\link[stampede]{stamp_this}}
+#' @rdname log_this
+#' @export
+#' @importFrom readr write_tsv
+#' @importFrom tibble tibble
+
+log_this <-
+        function(path_to_file,
+                 activity_type,
+                 function_used = "",
+                 details = "") {
+
+                create_log.md()
+
+                readr::write_tsv(tibble::tibble(Timestamp = Sys.time(),
+                                             `Activity Type` = activity_type,
+                                             Function = function_used,
+                                             File = path_to_file,
+                                             Details = details),
+                                       path = "log.md",
+                                       append = TRUE)
+        }
+
+
+
+
+
