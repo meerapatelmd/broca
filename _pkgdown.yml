@@ -1,0 +1,6 @@
+reference:
+    title: Clipboard
+    desc: >
+        Copy and paste functions
+    content:
+      - ends_with("clipboard")
