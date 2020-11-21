@@ -22,3 +22,7 @@ Imports:
     readxl,
     openxlsx,
     magrittr
+URL: https://meerapatelmd.github.io/broca/, https://github.com/meerapatelmd/broca/
+BugReports: https://github.com/meerapatelmd/broca/issues/
+
+
