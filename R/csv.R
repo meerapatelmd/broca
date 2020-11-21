@@ -19,7 +19,7 @@ is_csv <-
 #' @export
 
 simply_read_csv <-
-        function(path_to_csv, log = TRUE, log_details = "") {
+        function(path_to_csv, log = FALSE, log_details = "") {
             if (log == TRUE) {
                             log_this(path_to_file = path_to_csv,
                                      activity_type = "read",
@@ -40,7 +40,7 @@ simply_read_csv <-
 #' @export
 
 simply_write_csv <-
-        function(x, file, ..., log = TRUE, log_details = "") {
+        function(x, file, ..., log = FALSE, log_details = "") {
 
                 if (log == TRUE) {
                         log_this(path_to_file = file,
@@ -65,7 +65,7 @@ simply_write_csv <-
 #' @export
 
 write_temp_csv <-
-        function(x, log = TRUE, log_details = "", ...) {
+        function(x, log = FALSE, log_details = "", ...) {
 
 
                 temp_file <- tempfile(fileext = ".csv")

@@ -9,7 +9,3 @@ create_log.md()
 \description{
 Create log.md if it doesn't exist
 }
-\seealso{
-\code{\link[tibble]{tribble}}
- \code{\link[readr]{write_delim}}
-}

@@ -9,9 +9,3 @@ log_this(path_to_file, activity_type, function_used = "", details = "")
 \description{
 Universal log function to use to log items
 }
-\seealso{
-\code{\link[rubix]{blank_tibble}}
- \code{\link[readr]{write_delim}}
- \code{\link[tibble]{tibble}}
- \code{\link[stampede]{stamp_this}}
-}

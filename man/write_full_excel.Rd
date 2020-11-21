@@ -4,7 +4,7 @@
 \alias{write_full_excel}
 \title{Write an Excel with a Log Entry}
 \usage{
-write_full_excel(x, file, log = TRUE, log_details = "", ...)
+write_full_excel(x, file, log = FALSE, log_details = "", ...)
 }
 \arguments{
 \item{x}{data to write, either as a list or a single dataframe}

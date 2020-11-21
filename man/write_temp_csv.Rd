@@ -4,7 +4,7 @@
 \alias{write_temp_csv}
 \title{A simply write csv to a temp file with a logging feature}
 \usage{
-write_temp_csv(x, log = TRUE, log_details = "", ...)
+write_temp_csv(x, log = FALSE, log_details = "", ...)
 }
 \arguments{
 \item{x}{data to write}

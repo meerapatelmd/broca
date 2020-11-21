@@ -22,7 +22,7 @@ is_excel <-
 
 
 read_full_excel <-
-        function(full_xlsx_fn, log = TRUE, log_details = "") {
+        function(full_xlsx_fn, log = FALSE, log_details = "") {
 
             if (log == TRUE) {
                             log_this(path_to_file = full_xlsx_fn,
@@ -54,7 +54,7 @@ read_full_excel <-
 write_full_excel <-
         function(x,
                  file,
-                 log = TRUE,
+                 log = FALSE,
                  log_details = "",
                  ...) {
 
@@ -81,7 +81,9 @@ write_full_excel <-
 #' @export
 
 write_temp_xlsx <-
-        function(x, log = TRUE, log_details = "") {
+        function(x,
+                 log = FALSE,
+                 log_details = "") {
 
 
                 temp_file <- tempfile(fileext = ".xlsx")

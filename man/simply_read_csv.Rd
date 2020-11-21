@@ -4,7 +4,7 @@
 \alias{simply_read_csv}
 \title{Reads a csv}
 \usage{
-simply_read_csv(path_to_csv, log = TRUE, log_details = "")
+simply_read_csv(path_to_csv, log = FALSE, log_details = "")
 }
 \description{
 Reads a csv

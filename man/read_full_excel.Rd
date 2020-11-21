@@ -4,7 +4,7 @@
 \alias{read_full_excel}
 \title{Reads entire XLSX file into a list of dataframes}
 \usage{
-read_full_excel(full_xlsx_fn, log = TRUE, log_details = "")
+read_full_excel(full_xlsx_fn, log = FALSE, log_details = "")
 }
 \arguments{
 \item{full_xlsx_fn}{full path to xlsx filename}
