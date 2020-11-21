@@ -128,7 +128,24 @@
     <p>Reads a csv</p>
     </div>
 
-    <pre class="usage"><span class='fu'>simply_read_csv</span><span class='op'>(</span><span class='va'>path_to_csv</span>, log <span class='op'>=</span> <span class='cn'>FALSE</span>, log_details <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>simply_read_csv</span><span class='op'>(</span>
+  <span class='va'>file</span>,
+  col_names <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  col_types <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/cols.html'>cols</a></span><span class='op'>(</span>.default <span class='op'>=</span> <span class='st'>"c"</span><span class='op'>)</span>,
+  locale <span class='op'>=</span> <span class='fu'>default_locale</span><span class='op'>(</span><span class='op'>)</span>,
+  na <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>""</span>, <span class='st'>"NA"</span><span class='op'>)</span>,
+  quoted_na <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  quote <span class='op'>=</span> <span class='st'>"\""</span>,
+  comment <span class='op'>=</span> <span class='st'>""</span>,
+  trim_ws <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  skip <span class='op'>=</span> <span class='fl'>0</span>,
+  n_max <span class='op'>=</span> <span class='cn'>Inf</span>,
+  guess_max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='va'>n_max</span><span class='op'>)</span>,
+  progress <span class='op'>=</span> <span class='fu'>show_progress</span><span class='op'>(</span><span class='op'>)</span>,
+  skip_empty_rows <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  log <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  log_details <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
 
 
