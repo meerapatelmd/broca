@@ -25,13 +25,9 @@ navbar:
 
 reference:
     - title: Clipboard
-      desc: >
-        Copy and paste dataframes
       contents:
         - ends_with("clipboard")
     - title: Read and Write
-      desc: >
-        Write tabular files
       contents:
         - starts_with("write")
         - contains("read")
