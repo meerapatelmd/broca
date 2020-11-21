@@ -34,6 +34,14 @@ reference:
     - title: Read
       contents:
       - contains("read")
+    - title: View
+      desc: >
+        View a dataframe in an application
+      contents:
+      - starts_with("view")
+
+
+
 
 
 
