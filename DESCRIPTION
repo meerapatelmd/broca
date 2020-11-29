@@ -1,6 +1,6 @@
 Package: broca
 Title: Helpers for Reading and Writing Data
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Meera",
            family = "Patel, MD",
