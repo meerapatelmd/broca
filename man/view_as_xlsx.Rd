@@ -2,13 +2,16 @@
 % Please edit documentation in R/view.R
 \name{view_as_xlsx}
 \alias{view_as_xlsx}
-\title{View in Temporary Excel File}
+\title{View a Dataframe in a Temporary Excel File}
 \usage{
 view_as_xlsx(data)
+}
+\arguments{
+\item{data}{A dataframe or tibble.}
 }
 \value{
 Path to the temporary filename for unlinking
 }
 \description{
-Write the data to a temporary xlsx file and open in Excel.
+View a dataframe in an Excel opened in Excel without having to export to a permanant file.
 }

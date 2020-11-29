@@ -2,7 +2,7 @@
 % Please edit documentation in R/make.R
 \name{make_trbl}
 \alias{make_trbl}
-\title{Make a tribble skeleton}
+\title{Make a Tribble Skeleton}
 \usage{
 make_trbl(data, quote = "\\"")
 }
@@ -12,8 +12,9 @@ make_trbl(data, quote = "\\"")
 \item{quote}{Single character used to quote strings.}
 }
 \description{
-Make a tribble skeleton
+Make a Tribble Skeleton
 }
 \seealso{
 \code{\link[dplyr]{mutate_if}}
 }
+\concept{make functions}

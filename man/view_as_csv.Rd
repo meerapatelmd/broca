@@ -2,13 +2,29 @@
 % Please edit documentation in R/view.R
 \name{view_as_csv}
 \alias{view_as_csv}
-\title{View In Temporary CSV File}
+\title{View a Dataframe in a Temporary CSV File}
 \usage{
-view_as_csv(data)
+view_as_csv(
+  data,
+  na = NA,
+  append = FALSE,
+  col_names = !append,
+  quote_escape = double,
+  eol = "\\n",
+  log = "DEPRECATED",
+  log_details = ""
+)
+}
+\arguments{
+\item{data}{A dataframe or tibble.}
+
+\item{log}{(Deprecated) Log this function call to a log.md file?}
+
+\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
 }
 \value{
-path to the temporary filename for unlinking
+Path to the temporary filename for unlinking
 }
 \description{
-View a data in a csv opened in Excel without having to export to a permanant file.
+View a dataframe in a csv opened in Excel without having to export to a permanant file.
 }

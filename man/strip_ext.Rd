@@ -2,10 +2,10 @@
 % Please edit documentation in R/utils.R
 \name{strip_ext}
 \alias{strip_ext}
-\title{Strip Extension}
+\title{Remove File Extension from String}
 \usage{
 strip_ext(file)
 }
 \description{
-Strip Extension
+Remove File Extension from String
 }

@@ -12,8 +12,7 @@ write_temp_csv(
   quote_escape = double,
   eol = "\\n",
   log = "DEPRECATED",
-  log_details = "",
-  ...
+  log_details = ""
 )
 }
 \arguments{

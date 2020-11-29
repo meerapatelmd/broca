@@ -1,9 +1,10 @@
 #' @title
-#' Make a tribble skeleton
+#' Make a Tribble Skeleton
 #' @inheritParams args
 #' @seealso
 #'  \code{\link[dplyr]{mutate_if}}
 #' @rdname make_trbl
+#' @family make functions
 #' @export
 #' @importFrom dplyr mutate_if
 

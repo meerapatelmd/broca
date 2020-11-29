@@ -1,7 +1,7 @@
 #' @title
-#' Strip Extension
+#' Remove File Extension from String
 #' @export
-
+#' @importFrom stringr str_replace
 
 
 strip_ext <-
