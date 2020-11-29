@@ -5,7 +5,7 @@
 #'  \code{\link[dplyr]{mutate_if}}
 #' @rdname make_trbl
 #' @export
-#' @importFrom dplyr mutate_ifl
+#' @importFrom dplyr mutate_if
 
 make_trbl <-
         function(data, quote = "\"") {
