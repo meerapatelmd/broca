@@ -1,0 +1,28 @@
+library(tidyverse)
+
+# Test Data
+test_data <-
+        tibble(A = 1:3,
+               B = c("Apples", "Bananas", "Oranges"),
+               C = factor(c("Apples", "Bananas", "Oranges")),
+               D = runif(3))
+
+
+# Copy to Clipboard
+copy_cb(data = test_data)
+
+# Read Clipboard
+read_cb()
+
+# Check Datatypes
+sapply(test_data, FUN = class)
+sapply(read_cb(), FUN = class) # `read_cb()` function mutates all factors to character before returning
+
+# Read Clipboard Shortcut for Headerless Data
+read_cb_hl()
+
+# Read Clipboard as a Tribble for Copy and Paste
+read_cb_trbl()
+read_cb_trbl(header = FALSE)
+read_cb_trbl(quote = "'")
+read_cb_trbl(header = FALSE, quote = "'")

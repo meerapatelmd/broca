@@ -4,20 +4,24 @@
 \alias{copy_to_clipboard}
 \title{Copy a data frame to the clipboard}
 \usage{
-copy_to_clipboard(dataframe, log = TRUE, log_details = "")
+copy_to_clipboard(data, log = "DEPRECATED", log_details = "")
 }
 \arguments{
-\item{dataframe}{dataframe}
+\item{data}{A dataframe or tibble.}
 
-\item{log}{Log this function call to a log.md file? Default: TRUE}
+\item{log}{(Deprecated) Log this function call to a log.md file?}
 
-\item{log_details}{If log is TRUE, additional notes to include with the log entry. PARAM_DESCRIPTION, Default: ''}
+\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
 }
 \description{
-Copy a data frame to the clipboard
+(Deprecated) Use \code{\link{copy_cb}} instead.
 }
 \seealso{
-Other clipboard: 
+Other clipboard functions: 
+\code{\link{copy_cb}()},
+\code{\link{read_cb_hl}()},
+\code{\link{read_cb_trbl}()},
+\code{\link{read_cb}()},
 \code{\link{read_clipboard}()}
 }
-\concept{clipboard}
+\concept{clipboard functions}
