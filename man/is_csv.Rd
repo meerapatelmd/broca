@@ -13,6 +13,9 @@ is_csv(file)
 Check if the file has a name that matches the ".csv" file extension pattern.
 }
 \seealso{
+Other logical functions: 
+\code{\link{is_excel}()}
+
 Other csv functions: 
 \code{\link{simply_read_csv}()},
 \code{\link{simply_write_csv}()},

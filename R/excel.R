@@ -1,4 +1,13 @@
-#' Is the file an excel file?
+#' @title
+#' Does the file have an xlsx extension?
+#'
+#' @description
+#' Check if the file has a name that matches the ".xlsx" file extension pattern.
+#'
+#' @inheritParams args
+#' @rdname is_excel
+#' @family logical functions
+#' @family excel functions
 #' @export
 
 is_excel <-
@@ -7,35 +16,61 @@ is_excel <-
         }
 
 
-
-
-
-
-
-
-
-#' Reads entire XLSX file into a list of dataframes
-#' @param full_xlsx_fn full path to xlsx file
-#' @import readxl
-#' @import purrr
+#' @title
+#' Read an Entire Excel Workbook
+#'
+#' @description
+#' Read an Entire Excel Workbook into a list of dataframes named by the original spreadsheet name. Arguments are passed to \code{\link[readxl]{read_excel}} for each sheet.
+#'
+#' @inheritParams args
+#' @inheritParams readxl::read_excel
+#' @rdname is_excel
+#' @family read functions
+#' @family excel functions
+#' @seealso
+#'  \code{\link[readxl]{excel_sheets}},\code{\link[readxl]{read_excel}}
+#'  \code{\link[purrr]{set_names}},\code{\link[purrr]{map}}
+#' @rdname read_full_excel
 #' @export
-
+#' @importFrom readxl excel_sheets read_excel
+#' @importFrom purrr set_names map
 
 read_full_excel <-
-        function(full_xlsx_fn, log = FALSE, log_details = "") {
+        function(file,
+                 col_names = TRUE,
+                 col_types = "text",
+                 na = "",
+                 trim_ws = TRUE,
+                 skip = 0,
+                 n_max = Inf,
+                 guess_max = min(1000, n_max),
+                 progress = readxl_progress(),
+                 .name_repair = "unique",
+                 log = "DEPRECATED",
+                 log_details = "") {
 
             if (log == TRUE) {
-                            log_this(path_to_file = full_xlsx_fn,
+                            log_this(path_to_file = file,
                                      activity_type = "read",
                                      details = log_details,
                                      function_used = "read_full_excel")
             }
-                        return(
-                                full_xlsx_fn %>%
+
+                                file %>%
                                         readxl::excel_sheets() %>%
-                                        set_names() %>%
-                                        purrr::map(readxl::read_excel, path = full_xlsx_fn, col_types = "text")
-                        )
+                                        purrr::set_names() %>%
+                                        purrr::map(readxl::read_excel,
+                                                   path = file,
+                                                   col_names = col_names,
+                                                   col_types = col_types,
+                                                   na = na,
+                                                   trim_ws = trim_ws,
+                                                   skip = skip,
+                                                   n_max = n_max,
+                                                   guess_max = guess_max,
+                                                   progress = progress,
+                                                   .name_repair = .name_repair)
+
         }
 
 
@@ -43,20 +78,31 @@ read_full_excel <-
 
 
 
-#' Write an Excel with a Log Entry
-#' @param x data to write, either as a list or a single dataframe
-#' @param file path to xlsx file
-#' @param log_details log detail or comment to include in the log entry. NULL if no log entry is required.
-#' @param ... optional parameters passed to openxlsx::write.xlsx
-#' @importFrom openxlsx write.xlsx
+#' @title
+#' Write a List of Dataframes as an Excel
+#'
+#' @description
+#' Write an Excel file using \code{\link[openxlsx]{write.xlsx}}.
+#'
+#' @inheritParams args
+#' @inheritParams openxlsx::write.xlsx
+#' @seealso
+#'  \code{\link[openxlsx]{write.xlsx}}
+#' @rdname write_full_excel
 #' @export
+#' @importFrom openxlsx write.xlsx
+#' @family write functions
+#' @family excel functions
+
+
 
 write_full_excel <-
         function(x,
                  file,
-                 log = FALSE,
-                 log_details = "",
-                 ...) {
+                 asTable = FALSE,
+                 ...,
+                 log = "DEPRECATED",
+                 log_details = "") {
 
                 if (log == TRUE) {
                         log_this(path_to_file = file,
@@ -68,6 +114,7 @@ write_full_excel <-
 
                 openxlsx::write.xlsx(x = x,
                                      file = file,
+                                     asTable = asTable,
                                      ...)
         }
 
@@ -75,14 +122,24 @@ write_full_excel <-
 
 
 
-#' A simply write csv to a temp file with a logging feature
-#' @description A call to simply_write_csv, returning the path to the temp file
-#' @param x data to write
+#' @title
+#' Write a List of Dataframes as a Temporary Excel
+#'
+#' @description
+#' Write a temporary Excel file using \code{\link[openxlsx]{write.xlsx}}. The Path to the file is returned.
+#'
+#' @inheritParams args
+#' @inheritParams openxlsx::write.xlsx
+#' @rdname write_temp_xlsx
 #' @export
+#' @family write functions
+#' @family excel functions
 
 write_temp_xlsx <-
         function(x,
-                 log = FALSE,
+                 asTable = FALSE,
+                 ...,
+                 log = "DEPRECATED",
                  log_details = "") {
 
 
@@ -96,7 +153,9 @@ write_temp_xlsx <-
                 }
 
                 write_full_excel(x = x,
-                                 file = temp_file)
+                                 file = temp_file,
+                                 asTable = asTable,
+                                 ...)
 
                 return(temp_file)
         }

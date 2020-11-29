@@ -4,18 +4,40 @@
 \alias{write_temp_delim}
 \title{A simply write txt to a temp file with a logging feature}
 \usage{
-write_temp_delim(x, delimiter, log = TRUE, log_details = "", ...)
+write_temp_delim(
+  x,
+  delim = " ",
+  na = NA,
+  append = FALSE,
+  col_name = !append,
+  quote_escape = double,
+  eol = "\\n",
+  log = "DEPRECATED",
+  log_details = ""
+)
 }
 \arguments{
-\item{x}{data to write}
+\item{x}{A data frame or tibble to write to disk.}
 
-\item{delimiter}{delimiter for the readr::write_delim argument}
+\item{delim}{Delimiter used to separate values. Defaults to \code{" "} for \code{write_delim()}, \code{","} for \code{write_excel_csv()} and
+\code{";"} for \code{write_excel_csv2()}. Must be a single character.}
 
-\item{...}{additional arguments for the readr::write_delim argument.}
-}
-\value{
-path to temp txt file
+\item{na}{String used for missing values. Defaults to NA. Missing values
+will never be quoted; strings with the same value as \code{na} will
+always be quoted.}
+
+\item{append}{If \code{FALSE}, will overwrite existing file. If \code{TRUE},
+will append to existing file. In both cases, if the file does not exist a new
+file is created.}
+
+\item{quote_escape}{The type of escaping to use for quoted values, one of
+\code{"double"}, \code{"backslash"} or \code{"none"}. You can also use \code{FALSE}, which is
+equivalent to "none". The default is \code{"double"}, which is expected format for Excel.}
+
+\item{eol}{The end of line character to use. Most commonly either \code{"\n"} for
+Unix style newlines, or \code{"\r\n"} for Windows style newlines.}
 }
 \description{
-A simply write txt to a temp file with a logging feature
+Write a delimited text file to a temporary path. Path to the temporary text file is returned.
 }
+\concept{delim functions}
