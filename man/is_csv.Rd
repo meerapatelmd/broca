@@ -2,10 +2,18 @@
 % Please edit documentation in R/csv.R
 \name{is_csv}
 \alias{is_csv}
-\title{Is the file an csv file?}
+\title{Does the file have a csv extension?}
 \usage{
 is_csv(file)
 }
 \description{
-Is the file an csv file?
+Check if the file has a name that matches the ".csv" file extension pattern.
 }
+\seealso{
+Other csv functions: 
+\code{\link{simply_read_csv}()},
+\code{\link{simply_write_csv}()},
+\code{\link{write_temp_csv}()}
+}
+\concept{csv functions}
+\concept{logical functions}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/csv.R
 \name{simply_read_csv}
 \alias{simply_read_csv}
-\title{Reads a csv}
+\title{Read a CSV as All Text}
 \usage{
 simply_read_csv(
   file,
@@ -19,10 +19,24 @@ simply_read_csv(
   guess_max = min(1000, n_max),
   progress = show_progress(),
   skip_empty_rows = TRUE,
-  log = FALSE,
+  log = "DEPRECATED",
   log_details = ""
 )
 }
-\description{
-Reads a csv
+\arguments{
+\item{quote}{Single character used to quote strings.}
+
+\item{log}{(Deprecated) Log this function call to a log.md file?}
+
+\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
 }
+\description{
+Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  \code{\link[readr]{read_csv}}.
+}
+\seealso{
+Other csv functions: 
+\code{\link{is_csv}()},
+\code{\link{simply_write_csv}()},
+\code{\link{write_temp_csv}()}
+}
+\concept{csv functions}

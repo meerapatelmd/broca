@@ -2,15 +2,32 @@
 % Please edit documentation in R/csv.R
 \name{write_temp_csv}
 \alias{write_temp_csv}
-\title{A simply write csv to a temp file with a logging feature}
+\title{Write CSV to a Temporary File}
 \usage{
-write_temp_csv(x, log = FALSE, log_details = "", ...)
+write_temp_csv(
+  x,
+  na = NA,
+  append = FALSE,
+  col_names = !append,
+  quote_escape = double,
+  eol = "\\n",
+  log = "DEPRECATED",
+  log_details = "",
+  ...
+)
 }
 \arguments{
-\item{x}{data to write}
+\item{log}{(Deprecated) Log this function call to a log.md file?}
 
-\item{...}{arguments for readr::write_csv}
+\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
 }
 \description{
-A call to simply_write_csv, returning the path to the temp file
+Path to the temp file is returned in console.
 }
+\seealso{
+Other csv functions: 
+\code{\link{is_csv}()},
+\code{\link{simply_read_csv}()},
+\code{\link{simply_write_csv}()}
+}
+\concept{csv functions}

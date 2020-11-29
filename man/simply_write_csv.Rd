@@ -2,7 +2,7 @@
 % Please edit documentation in R/csv.R
 \name{simply_write_csv}
 \alias{simply_write_csv}
-\title{A simple write to csv with a logging feature}
+\title{Write to CSV}
 \usage{
 simply_write_csv(
   x,
@@ -12,15 +12,22 @@ simply_write_csv(
   col_names = !append,
   quote_escape = "double",
   eol = "\\n",
-  log = FALSE,
+  log = "DEPRECATED",
   log_details = ""
 )
 }
 \arguments{
-\item{x}{data to write}
+\item{log}{(Deprecated) Log this function call to a log.md file?}
 
-\item{path}{path to output file}
+\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
 }
 \description{
-A simple write to csv with a logging feature
+Wrapper to \code{\link[readr]{write_csv}}.
 }
+\seealso{
+Other csv functions: 
+\code{\link{is_csv}()},
+\code{\link{simply_read_csv}()},
+\code{\link{write_temp_csv}()}
+}
+\concept{csv functions}

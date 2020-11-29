@@ -1,12 +1,30 @@
-#' Is the file an csv file?
+#' @title
+#' Does the file have a csv extension?
+#'
+#' @description
+#' Check if the file has a name that matches the ".csv" file extension pattern.
+#'
+#' @inheritParams args
+#' @rdname is_csv
+#' @family logical functions
+#' @family csv functions
 #' @export
+
 is_csv <-
         function(file) {
                 grepl("[.]csv$", file, ignore.case = TRUE)
         }
 
-#' Reads a csv
+#' @title
+#' Read a CSV as All Text
+#'
+#' @description
+#' Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  \code{\link[readr]{read_csv}}.
+#'
 #' @importFrom readr read_csv
+#' @inheritParams args
+#' @rdname simply_read_csv
+#' @family csv functions
 #' @export
 
 simply_read_csv <-
@@ -24,7 +42,7 @@ simply_read_csv <-
                  guess_max = min(1000, n_max),
                  progress = show_progress(),
                  skip_empty_rows = TRUE,
-                 log = FALSE,
+                 log = "DEPRECATED",
                  log_details = "") {
 
 
@@ -55,10 +73,16 @@ simply_read_csv <-
 
 
 
-#' A simple write to csv with a logging feature
-#' @param x data to write
-#' @param path path to output file
+#' @title
+#' Write to CSV
+#'
+#' @description
+#' Wrapper to \code{\link[readr]{write_csv}}.
+#'
 #' @importFrom readr write_csv
+#' @inheritParams args
+#' @rdname simply_write_csv
+#' @family csv functions
 #' @export
 
 simply_write_csv <-
@@ -69,7 +93,7 @@ simply_write_csv <-
                  col_names = !append,
                  quote_escape = "double",
                  eol = "\n",
-                 log = FALSE,
+                 log = "DEPRECATED",
                  log_details = "") {
 
 
@@ -93,14 +117,26 @@ simply_write_csv <-
 
 
 
-#' A simply write csv to a temp file with a logging feature
-#' @description A call to simply_write_csv, returning the path to the temp file
-#' @param x data to write
-#' @param ... arguments for readr::write_csv
+#' @title
+#' Write CSV to a Temporary File
+#'
+#' @description
+#' Path to the temp file is returned in console.
+#'
+#' @inheritParams args
+#' @rdname write_temp_csv
+#' @family csv functions
 #' @export
 
 write_temp_csv <-
-        function(x, log = FALSE, log_details = "", ...) {
+        function(x,
+                 na = NA,
+                 append = FALSE,
+                 col_names = !append,
+                 quote_escape = double,
+                 eol = "\n",
+                 log = "DEPRECATED",
+                 log_details = "", ...) {
 
 
                 temp_file <- tempfile(fileext = ".csv")
@@ -114,8 +150,13 @@ write_temp_csv <-
 
                 simply_write_csv(x = x,
                                  file = temp_file,
-                                 log = FALSE,
-                                 ...)
+                                 na = na,
+                                 append = append,
+                                 col_names = col_names,
+                                 quote_escape = quote_escape,
+                                 eol = eol,
+                                 log = log,
+                                 log_details = log_details)
 
                 return(temp_file)
         }
