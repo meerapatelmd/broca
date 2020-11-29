@@ -6,6 +6,9 @@
 \usage{
 is_csv(file)
 }
+\arguments{
+\item{file}{File path.}
+}
 \description{
 Check if the file has a name that matches the ".csv" file extension pattern.
 }

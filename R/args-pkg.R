@@ -6,6 +6,7 @@
 #' @param log_details   (Deprecated) If log is TRUE, additional notes to include with the log entry.
 #' @param header        True if data has a header.
 #' @param quote         Single character used to quote strings.
+#' @param file          File path.
 #' @inheritParams readr::read_csv
 #' @inheritParams readr::write_csv
 #' @name args
