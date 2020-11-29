@@ -10,26 +10,27 @@
 #' @export
 
 view_as_csv <-
-        function(data,
-                 na = NA,
-                 append = FALSE,
-                 col_names = !append,
-                 quote_escape = double,
-                 eol = "\n",
-                 log = "DEPRECATED",
-                 log_details = "") {
+  function(data,
+           na = NA,
+           append = FALSE,
+           col_names = !append,
+           quote_escape = double,
+           eol = "\n",
+           log = "DEPRECATED",
+           log_details = "") {
+    temp_fn <- write_temp_csv(
+      x = data,
+      na = na,
+      append = append,
+      col_names = col_names,
+      quote_escape = quote_escape,
+      eol = eol
+    )
 
-                temp_fn <- write_temp_csv(x = data,
-                                          na = na,
-                                          append = append,
-                                          col_names = col_names,
-                                          quote_escape = quote_escape,
-                                          eol = eol)
+    system(paste0("open ", temp_fn))
 
-                system(paste0("open ", temp_fn))
-
-                temp_fn
-        }
+    temp_fn
+  }
 
 
 #' @title
@@ -45,12 +46,8 @@ view_as_csv <-
 #' @importFrom openxlsx openXL
 
 view_as_xlsx <-
-        function(data) {
-                temp_fn <- write_temp_xlsx(x = data)
-                openxlsx::openXL(temp_fn)
-                temp_fn
-        }
-
-
-
-
+  function(data) {
+    temp_fn <- write_temp_xlsx(x = data)
+    openxlsx::openXL(temp_fn)
+    temp_fn
+  }

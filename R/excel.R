@@ -11,9 +11,9 @@
 #' @export
 
 is_excel <-
-        function(file) {
-                grepl("[.]xlsx$", file, ignore.case = TRUE)
-        }
+  function(file) {
+    grepl("[.]xlsx$", file, ignore.case = TRUE)
+  }
 
 
 #' @title
@@ -35,42 +35,43 @@ is_excel <-
 #' @importFrom purrr set_names map
 
 read_full_excel <-
-        function(file,
-                 col_names = TRUE,
-                 col_types = "text",
-                 na = "",
-                 trim_ws = TRUE,
-                 skip = 0,
-                 n_max = Inf,
-                 guess_max = min(1000, n_max),
-                 progress = readxl_progress(),
-                 .name_repair = "unique",
-                 log = "DEPRECATED",
-                 log_details = "") {
+  function(file,
+           col_names = TRUE,
+           col_types = "text",
+           na = "",
+           trim_ws = TRUE,
+           skip = 0,
+           n_max = Inf,
+           guess_max = min(1000, n_max),
+           progress = readxl_progress(),
+           .name_repair = "unique",
+           log = "DEPRECATED",
+           log_details = "") {
+    if (log == TRUE) {
+      log_this(
+        path_to_file = file,
+        activity_type = "read",
+        details = log_details,
+        function_used = "read_full_excel"
+      )
+    }
 
-            if (log == TRUE) {
-                            log_this(path_to_file = file,
-                                     activity_type = "read",
-                                     details = log_details,
-                                     function_used = "read_full_excel")
-            }
-
-                                file %>%
-                                        readxl::excel_sheets() %>%
-                                        purrr::set_names() %>%
-                                        purrr::map(readxl::read_excel,
-                                                   path = file,
-                                                   col_names = col_names,
-                                                   col_types = col_types,
-                                                   na = na,
-                                                   trim_ws = trim_ws,
-                                                   skip = skip,
-                                                   n_max = n_max,
-                                                   guess_max = guess_max,
-                                                   progress = progress,
-                                                   .name_repair = .name_repair)
-
-        }
+    file %>%
+      readxl::excel_sheets() %>%
+      purrr::set_names() %>%
+      purrr::map(readxl::read_excel,
+        path = file,
+        col_names = col_names,
+        col_types = col_types,
+        na = na,
+        trim_ws = trim_ws,
+        skip = skip,
+        n_max = n_max,
+        guess_max = guess_max,
+        progress = progress,
+        .name_repair = .name_repair
+      )
+  }
 
 
 
@@ -96,26 +97,28 @@ read_full_excel <-
 
 
 write_full_excel <-
-        function(x,
-                 file,
-                 asTable = FALSE,
-                 ...,
-                 log = "DEPRECATED",
-                 log_details = "") {
+  function(x,
+           file,
+           asTable = FALSE,
+           ...,
+           log = "DEPRECATED",
+           log_details = "") {
+    if (log == TRUE) {
+      log_this(
+        path_to_file = file,
+        activity_type = "write",
+        function_used = "write_full_excel",
+        details = log_details
+      )
+    }
 
-                if (log == TRUE) {
-                        log_this(path_to_file = file,
-                                 activity_type = "write",
-                                 function_used = "write_full_excel",
-                                 details = log_details
-                        )
-                }
-
-                openxlsx::write.xlsx(x = x,
-                                     file = file,
-                                     asTable = asTable,
-                                     ...)
-        }
+    openxlsx::write.xlsx(
+      x = x,
+      file = file,
+      asTable = asTable,
+      ...
+    )
+  }
 
 
 
@@ -135,31 +138,28 @@ write_full_excel <-
 #' @family excel functions
 
 write_temp_xlsx <-
-        function(x,
-                 asTable = FALSE,
-                 ...,
-                 log = "DEPRECATED",
-                 log_details = "") {
+  function(x,
+           asTable = FALSE,
+           ...,
+           log = "DEPRECATED",
+           log_details = "") {
+    temp_file <- tempfile(fileext = ".xlsx")
 
+    if (log == TRUE) {
+      log_this(
+        path_to_file = temp_file,
+        activity_type = "write",
+        function_used = "write_temp_xlsx",
+        details = log_details
+      )
+    }
 
-                temp_file <- tempfile(fileext = ".xlsx")
+    write_full_excel(
+      x = x,
+      file = temp_file,
+      asTable = asTable,
+      ...
+    )
 
-                if (log == TRUE) {
-                        log_this(path_to_file = temp_file,
-                                 activity_type = "write",
-                                 function_used = "write_temp_xlsx",
-                                 details = log_details)
-                }
-
-                write_full_excel(x = x,
-                                 file = temp_file,
-                                 asTable = asTable,
-                                 ...)
-
-                return(temp_file)
-        }
-
-
-
-
-
+    return(temp_file)
+  }

@@ -10,20 +10,21 @@
 #' @importFrom utils write.table
 
 copy_to_clipboard <-
-        function(data, log = "DEPRECATED", log_details = "") {
+  function(data, log = "DEPRECATED", log_details = "") {
+    .Deprecated("copy_cb")
+    clip <- pipe("pbcopy", "wb")
+    utils::write.table(data, clip, sep = "\t", row.names = FALSE)
+    close(clip)
 
-                                .Deprecated("copy_cb")
-                            clip <- pipe("pbcopy", "wb")
-                            utils::write.table(data, clip, sep = "\t", row.names = FALSE)
-                            close(clip)
-
-                            if (log == TRUE) {
-                                log_this(path_to_file = "",
-                                         activity_type = "write",
-                                         details = log_details,
-                                         function_used = "copy_to_clipboard")
-                            }
-        }
+    if (log == TRUE) {
+      log_this(
+        path_to_file = "",
+        activity_type = "write",
+        details = log_details,
+        function_used = "copy_to_clipboard"
+      )
+    }
+  }
 
 
 #' @title
@@ -37,20 +38,20 @@ copy_to_clipboard <-
 #' @example inst/example/clipboard_functions.R
 
 copy_cb <-
-        function(data, log = "DEPRECATED", log_details = "") {
+  function(data, log = "DEPRECATED", log_details = "") {
+    clip <- pipe("pbcopy", "wb")
+    utils::write.table(data, clip, sep = "\t", row.names = FALSE)
+    close(clip)
 
-
-                clip <- pipe("pbcopy", "wb")
-                utils::write.table(data, clip, sep = "\t", row.names = FALSE)
-                close(clip)
-
-                if (log == TRUE) {
-                        log_this(path_to_file = "",
-                                 activity_type = "write",
-                                 details = log_details,
-                                 function_used = "copy_to_clipboard")
-                }
-        }
+    if (log == TRUE) {
+      log_this(
+        path_to_file = "",
+        activity_type = "write",
+        details = log_details,
+        function_used = "copy_to_clipboard"
+      )
+    }
+  }
 
 
 
@@ -71,22 +72,24 @@ copy_cb <-
 #' @example inst/example/clipboard_functions.R
 
 read_clipboard <-
-    function(header = TRUE, log = "DEPRECATED", log_details = "") {
-                        if (log == TRUE) {
-                            log_this(path_to_file = "",
-                                     activity_type = "read",
-                                     details = log_details,
-                                     function_used = "read_clipboard")
-                        }
+  function(header = TRUE, log = "DEPRECATED", log_details = "") {
+    if (log == TRUE) {
+      log_this(
+        path_to_file = "",
+        activity_type = "read",
+        details = log_details,
+        function_used = "read_clipboard"
+      )
+    }
 
-                            if (header == TRUE) {
-                                    utils::read.table(pipe("pbpaste"), sep= "\t", header= TRUE) %>%
-                                            dplyr::mutate_if(is.factor, as.character)
-                            } else {
-                                    utils::read.table(pipe("pbpaste"), sep= "\t", header= FALSE)  %>%
-                                            dplyr::mutate_if(is.factor, as.character)
-                            }
-}
+    if (header == TRUE) {
+      utils::read.table(pipe("pbpaste"), sep = "\t", header = TRUE) %>%
+        dplyr::mutate_if(is.factor, as.character)
+    } else {
+      utils::read.table(pipe("pbpaste"), sep = "\t", header = FALSE) %>%
+        dplyr::mutate_if(is.factor, as.character)
+    }
+  }
 
 #' @title
 #' Read Headerless Data from Clipboard
@@ -103,10 +106,9 @@ read_clipboard <-
 #' @example inst/example/clipboard_functions.R
 
 read_cb_hl <-
-        function() {
-
-                read_clipboard(header = FALSE)
-        }
+  function() {
+    read_clipboard(header = FALSE)
+  }
 
 
 #' @title
@@ -121,10 +123,9 @@ read_cb_hl <-
 #' @example inst/example/clipboard_functions.R
 
 read_cb <-
-        function() {
-
-                read_clipboard(header = TRUE)
-        }
+  function() {
+    read_clipboard(header = TRUE)
+  }
 
 #' @title
 #' Read Clipboard as Tribble
@@ -136,11 +137,7 @@ read_cb <-
 #' @example inst/example/clipboard_functions.R
 
 read_cb_trbl <-
-        function(header = TRUE, quote = "\"") {
-
-                read_clipboard(header = header) %>%
-                        make_trbl(quote = quote)
-
-        }
-
-
+  function(header = TRUE, quote = "\"") {
+    read_clipboard(header = header) %>%
+      make_trbl(quote = quote)
+  }

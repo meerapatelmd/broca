@@ -7,22 +7,23 @@
 #' @description (Deprecated)
 
 create_log.md <-
-        function() {
-                if (!file.exists("log.md")) {
+  function() {
+    if (!file.exists("log.md")) {
+      .Deprecated()
+      new_log <-
+        tibble::tribble(
+          ~Timestamp,
+          ~`Activity Type`,
+          ~Function,
+          ~File,
+          ~Details
+        )
 
-                        .Deprecated()
-                        new_log <-
-                        tibble::tribble(~Timestamp,
-                                        ~`Activity Type`,
-                                        ~Function,
-                                        ~File,
-                                        ~Details)
-
-                        readr::write_tsv(new_log,
-                                         file = "log.md")
-                }
-
-        }
+      readr::write_tsv(new_log,
+        file = "log.md"
+      )
+    }
+  }
 
 
 
@@ -38,24 +39,21 @@ create_log.md <-
 #' @description (Deprecated)
 
 log_this <-
-        function(path_to_file,
-                 activity_type,
-                 function_used = "",
-                 details = "") {
+  function(path_to_file,
+           activity_type,
+           function_used = "",
+           details = "") {
+    .Deprecated()
+    create_log.md()
 
-                .Deprecated()
-                create_log.md()
-
-                readr::write_tsv(tibble::tibble(Timestamp = Sys.time(),
-                                             `Activity Type` = activity_type,
-                                             Function = function_used,
-                                             File = path_to_file,
-                                             Details = details),
-                                       file = "log.md",
-                                       append = TRUE)
-        }
-
-
-
-
-
+    readr::write_tsv(tibble::tibble(
+      Timestamp = Sys.time(),
+      `Activity Type` = activity_type,
+      Function = function_used,
+      File = path_to_file,
+      Details = details
+    ),
+    file = "log.md",
+    append = TRUE
+    )
+  }

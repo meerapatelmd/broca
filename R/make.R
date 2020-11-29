@@ -9,33 +9,33 @@
 #' @importFrom dplyr mutate_if
 
 make_trbl <-
-        function(data, quote = "\"") {
+  function(data, quote = "\"") {
+    data <-
+      data %>%
+      dplyr::mutate_if(is.factor, as.character) %>%
+      dplyr::mutate_if(is.character, ~ sprintf("%s%s%s", quote, ., quote))
 
-                data <-
-                        data %>%
-                        dplyr::mutate_if(is.factor, as.character) %>%
-                        dplyr::mutate_if(is.character, ~ sprintf("%s%s%s", quote, ., quote))
+    output <- vector()
+    for (i in 1:nrow(data)) {
+      output <-
+        c(
+          output,
+          data[i, ] %>%
+            unlist() %>%
+            paste(collapse = ", ")
+        )
+    }
 
-                output <- vector()
-                for (i in 1:nrow(data)) {
-                        output <-
-                                c(output,
-                                  data[i,] %>%
-                                          unlist() %>%
-                                          paste(collapse = ", ")
-                                )
-                }
+    output_colnames <-
+      paste0("~", colnames(data)) %>%
+      paste(collapse = ",")
 
-                output_colnames <-
-                        paste0("~", colnames(data)) %>%
-                        paste(collapse = ",")
-
-                c("tibble::tribble(",
-                  output_colnames,
-                  output,
-                  ")") %>%
-                        paste0(collapse = ",\n") %>%
-                        cat()
-
-
-        }
+    c(
+      "tibble::tribble(",
+      output_colnames,
+      output,
+      ")"
+    ) %>%
+      paste0(collapse = ",\n") %>%
+      cat()
+  }

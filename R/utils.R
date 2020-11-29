@@ -5,12 +5,13 @@
 
 
 strip_ext <-
-        function(file) {
-
-                stringr::str_replace(string = file,
-                                    pattern = "(^.*)([.]{1}.*$)",
-                                    replacement = "\\1")
-        }
+  function(file) {
+    stringr::str_replace(
+      string = file,
+      pattern = "(^.*)([.]{1}.*$)",
+      replacement = "\\1"
+    )
+  }
 
 
 
@@ -26,8 +27,3 @@ strip_ext <-
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 NULL
-
-
-
-
-
