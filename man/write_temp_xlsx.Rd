@@ -35,6 +35,7 @@ Other write functions:
 
 Other excel functions: 
 \code{\link{is_excel}()},
+\code{\link{read_full_excel}()},
 \code{\link{write_full_excel}()}
 }
 \concept{excel functions}

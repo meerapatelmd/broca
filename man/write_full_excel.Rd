@@ -46,6 +46,7 @@ Other write functions:
 
 Other excel functions: 
 \code{\link{is_excel}()},
+\code{\link{read_full_excel}()},
 \code{\link{write_temp_xlsx}()}
 }
 \concept{excel functions}
