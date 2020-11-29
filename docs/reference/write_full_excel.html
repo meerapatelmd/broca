@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write an Excel with a Log Entry — write_full_excel • broca</title>
+<title>Write a List of Dataframes as an Excel — write_full_excel • broca</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Write an Excel with a Log Entry — write_full_excel" />
-<meta property="og:description" content="Write an Excel with a Log Entry" />
+<meta property="og:title" content="Write a List of Dataframes as an Excel — write_full_excel" />
+<meta property="og:description" content="Write an Excel file using write.xlsx." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">broca</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -119,38 +119,69 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write an Excel with a Log Entry</h1>
+    <h1>Write a List of Dataframes as an Excel</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/broca/blob/master/R/excel.R'><code>R/excel.R</code></a></small>
     <div class="hidden name"><code>write_full_excel.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Write an Excel with a Log Entry</p>
+    <p>Write an Excel file using <code><a href='https://rdrr.io/pkg/openxlsx/man/write.xlsx.html'>write.xlsx</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>write_full_excel</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>file</span>, log <span class='op'>=</span> <span class='cn'>FALSE</span>, log_details <span class='op'>=</span> <span class='st'>""</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>write_full_excel</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>file</span>,
+  asTable <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>,
+  log <span class='op'>=</span> <span class='st'>"DEPRECATED"</span>,
+  log_details <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>data to write, either as a list or a single dataframe</p></td>
+      <td><p>object or a list of objects that can be handled by <code><a href='https://rdrr.io/pkg/openxlsx/man/writeData.html'>writeData</a></code> to write to file</p></td>
     </tr>
     <tr>
       <th>file</th>
-      <td><p>path to xlsx file</p></td>
+      <td><p>File path.</p></td>
     </tr>
     <tr>
-      <th>log_details</th>
-      <td><p>log detail or comment to include in the log entry. NULL if no log entry is required.</p></td>
+      <th>asTable</th>
+      <td><p>write using writeDataTable as opposed to writeData</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>optional parameters passed to openxlsx::write.xlsx</p></td>
+      <td><p>optional parameters to pass to functions:</p><ul>
+<li><p>createWorkbook</p></li>
+<li><p>addWorksheet</p></li>
+<li><p>writeData</p></li>
+<li><p>freezePane</p></li>
+<li><p>saveWorkbook</p></li>
+</ul>
+
+<p>see details.</p></td>
+    </tr>
+    <tr>
+      <th>log</th>
+      <td><p>(Deprecated) Log this function call to a log.md file?</p></td>
+    </tr>
+    <tr>
+      <th>log_details</th>
+      <td><p>(Deprecated) If log is TRUE, additional notes to include with the log entry.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/openxlsx/man/write.xlsx.html'>write.xlsx</a></code></p>
+<p>Other write functions: 
+<code><a href='write_temp_xlsx.html'>write_temp_xlsx</a>()</code></p>
+<p>Other excel functions: 
+<code><a href='is_excel.html'>is_excel</a>()</code>,
+<code><a href='write_temp_xlsx.html'>write_temp_xlsx</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

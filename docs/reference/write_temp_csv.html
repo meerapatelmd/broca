@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A simply write csv to a temp file with a logging feature — write_temp_csv • broca</title>
+<title>Write CSV to a Temporary File — write_temp_csv • broca</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="A simply write csv to a temp file with a logging feature — write_temp_csv" />
-<meta property="og:description" content="A call to simply_write_csv, returning the path to the temp file" />
+<meta property="og:title" content="Write CSV to a Temporary File — write_temp_csv" />
+<meta property="og:description" content="Path to the temp file is returned in console." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">broca</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -119,30 +119,45 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A simply write csv to a temp file with a logging feature</h1>
+    <h1>Write CSV to a Temporary File</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/broca/blob/master/R/csv.R'><code>R/csv.R</code></a></small>
     <div class="hidden name"><code>write_temp_csv.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A call to simply_write_csv, returning the path to the temp file</p>
+    <p>Path to the temp file is returned in console.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>write_temp_csv</span><span class='op'>(</span><span class='va'>x</span>, log <span class='op'>=</span> <span class='cn'>FALSE</span>, log_details <span class='op'>=</span> <span class='st'>""</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>write_temp_csv</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  na <span class='op'>=</span> <span class='cn'>NA</span>,
+  append <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  col_names <span class='op'>=</span> <span class='op'>!</span><span class='va'>append</span>,
+  quote_escape <span class='op'>=</span> <span class='va'>double</span>,
+  eol <span class='op'>=</span> <span class='st'>"\n"</span>,
+  log <span class='op'>=</span> <span class='st'>"DEPRECATED"</span>,
+  log_details <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>data to write</p></td>
+      <th>log</th>
+      <td><p>(Deprecated) Log this function call to a log.md file?</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>arguments for readr::write_csv</p></td>
+      <th>log_details</th>
+      <td><p>(Deprecated) If log is TRUE, additional notes to include with the log entry.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other csv functions: 
+<code><a href='is_csv.html'>is_csv</a>()</code>,
+<code><a href='simply_read_csv.html'>simply_read_csv</a>()</code>,
+<code><a href='simply_write_csv.html'>simply_write_csv</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

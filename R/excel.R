@@ -24,7 +24,6 @@ is_excel <-
 #'
 #' @inheritParams args
 #' @inheritParams readxl::read_excel
-#' @rdname is_excel
 #' @family read functions
 #' @family excel functions
 #' @seealso

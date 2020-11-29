@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>View In Temporary CSV File — view_as_csv • broca</title>
+<title>View a Dataframe in a Temporary CSV File — view_as_csv • broca</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="View In Temporary CSV File — view_as_csv" />
-<meta property="og:description" content="View a data in a csv opened in Excel without having to export to a permanant file." />
+<meta property="og:title" content="View a Dataframe in a Temporary CSV File — view_as_csv" />
+<meta property="og:description" content="View a dataframe in a csv opened in Excel without having to export to a permanant file." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">broca</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -119,21 +119,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>View In Temporary CSV File</h1>
+    <h1>View a Dataframe in a Temporary CSV File</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/broca/blob/master/R/view.R'><code>R/view.R</code></a></small>
     <div class="hidden name"><code>view_as_csv.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>View a data in a csv opened in Excel without having to export to a permanant file.</p>
+    <p>View a dataframe in a csv opened in Excel without having to export to a permanant file.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>view_as_csv</span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>view_as_csv</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  na <span class='op'>=</span> <span class='cn'>NA</span>,
+  append <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  col_names <span class='op'>=</span> <span class='op'>!</span><span class='va'>append</span>,
+  quote_escape <span class='op'>=</span> <span class='va'>double</span>,
+  eol <span class='op'>=</span> <span class='st'>"\n"</span>,
+  log <span class='op'>=</span> <span class='st'>"DEPRECATED"</span>,
+  log_details <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>A dataframe or tibble.</p></td>
+    </tr>
+    <tr>
+      <th>log</th>
+      <td><p>(Deprecated) Log this function call to a log.md file?</p></td>
+    </tr>
+    <tr>
+      <th>log_details</th>
+      <td><p>(Deprecated) If log is TRUE, additional notes to include with the log entry.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>path to the temporary filename for unlinking</p>
+    <p>Path to the temporary filename for unlinking</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

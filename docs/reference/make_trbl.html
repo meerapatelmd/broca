@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Reads entire XLSX file into a list of dataframes — read_full_excel • broca</title>
+<title>Make a Tribble Skeleton — make_trbl • broca</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Reads entire XLSX file into a list of dataframes — read_full_excel" />
-<meta property="og:description" content="Reads entire XLSX file into a list of dataframes" />
+<meta property="og:title" content="Make a Tribble Skeleton — make_trbl" />
+<meta property="og:description" content="Make a Tribble Skeleton" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">broca</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -119,26 +119,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Reads entire XLSX file into a list of dataframes</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/broca/blob/master/R/excel.R'><code>R/excel.R</code></a></small>
-    <div class="hidden name"><code>read_full_excel.Rd</code></div>
+    <h1>Make a Tribble Skeleton</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/broca/blob/master/R/make.R'><code>R/make.R</code></a></small>
+    <div class="hidden name"><code>make_trbl.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Reads entire XLSX file into a list of dataframes</p>
+    <p>Make a Tribble Skeleton</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_full_excel</span><span class='op'>(</span><span class='va'>full_xlsx_fn</span>, log <span class='op'>=</span> <span class='cn'>FALSE</span>, log_details <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>make_trbl</span><span class='op'>(</span><span class='va'>data</span>, quote <span class='op'>=</span> <span class='st'>"\""</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>full_xlsx_fn</th>
-      <td><p>full path to xlsx file</p></td>
+      <th>data</th>
+      <td><p>A dataframe or tibble.</p></td>
+    </tr>
+    <tr>
+      <th>quote</th>
+      <td><p>Single character used to quote strings.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
