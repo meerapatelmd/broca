@@ -17,9 +17,27 @@ simply_write_csv(
 )
 }
 \arguments{
-\item{log}{(Deprecated) Log this function call to a log.md file?}
+\item{x}{A data frame or tibble to write to disk.}
 
-\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
+\item{file}{File or connection to write to.}
+
+\item{na}{String used for missing values. Defaults to NA. Missing values
+will never be quoted; strings with the same value as \code{na} will
+always be quoted.}
+
+\item{append}{If \code{FALSE}, will overwrite existing file. If \code{TRUE},
+will append to existing file. In both cases, if the file does not exist a new
+file is created.}
+
+\item{col_names}{If \code{FALSE}, column names will not be included at the top of the file. If \code{TRUE},
+column names will be included. If not specified, \code{col_names} will take the opposite value given to \code{append}.}
+
+\item{quote_escape}{The type of escaping to use for quoted values, one of
+\code{"double"}, \code{"backslash"} or \code{"none"}. You can also use \code{FALSE}, which is
+equivalent to "none". The default is \code{"double"}, which is expected format for Excel.}
+
+\item{eol}{The end of line character to use. Most commonly either \code{"\n"} for
+Unix style newlines, or \code{"\r\n"} for Windows style newlines.}
 }
 \description{
 Wrapper to \code{\link[readr]{write_csv}}.

@@ -22,7 +22,7 @@ is_csv <-
 #' Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  \code{\link[readr]{read_csv}}.
 #'
 #' @importFrom readr read_csv
-#' @inheritParams args
+#' @inheritParams readr::read_csv
 #' @rdname simply_read_csv
 #' @family csv functions
 #' @export
@@ -80,7 +80,7 @@ simply_read_csv <-
 #' Wrapper to \code{\link[readr]{write_csv}}.
 #'
 #' @importFrom readr write_csv
-#' @inheritParams args
+#' @inheritParams readr::write_csv
 #' @rdname simply_write_csv
 #' @family csv functions
 #' @export

@@ -24,11 +24,102 @@ simply_read_csv(
 )
 }
 \arguments{
+\item{file}{Either a path to a file, a connection, or literal data
+(either a single string or a raw vector).
+
+Files ending in \code{.gz}, \code{.bz2}, \code{.xz}, or \code{.zip} will
+be automatically uncompressed. Files starting with \verb{http://},
+\verb{https://}, \verb{ftp://}, or \verb{ftps://} will be automatically
+downloaded. Remote gz files can also be automatically downloaded and
+decompressed.
+
+Literal data is most useful for examples and tests. It must contain at
+least one new line to be recognised as data (instead of a path) or be a
+vector of greater than length 1.
+
+Using a value of \code{\link[readr:clipboard]{clipboard()}} will read from the system clipboard.}
+
+\item{col_names}{Either \code{TRUE}, \code{FALSE} or a character vector
+of column names.
+
+If \code{TRUE}, the first row of the input will be used as the column
+names, and will not be included in the data frame. If \code{FALSE}, column
+names will be generated automatically: X1, X2, X3 etc.
+
+If \code{col_names} is a character vector, the values will be used as the
+names of the columns, and the first row of the input will be read into
+the first row of the output data frame.
+
+Missing (\code{NA}) column names will generate a warning, and be filled
+in with dummy names \code{X1}, \code{X2} etc. Duplicate column names
+will generate a warning and be made unique with a numeric suffix.}
+
+\item{col_types}{One of \code{NULL}, a \code{\link[readr:cols]{cols()}} specification, or
+a string. See \code{vignette("readr")} for more details.
+
+If \code{NULL}, all column types will be imputed from the first 1000 rows
+on the input. This is convenient (and fast), but not robust. If the
+imputation fails, you'll need to supply the correct types yourself.
+
+If a column specification created by \code{\link[readr:cols]{cols()}}, it must contain
+one column specification for each column. If you only want to read a
+subset of the columns, use \code{\link[readr:cols]{cols_only()}}.
+
+Alternatively, you can use a compact string representation where each
+character represents one column:
+\itemize{
+\item c = character
+\item i = integer
+\item n = number
+\item d = double
+\item l = logical
+\item f = factor
+\item D = date
+\item T = date time
+\item t = time
+\item ? = guess
+\item _ or - = skip
+
+By default, reading a file without a column specification will print a
+message showing what \code{readr} guessed they were. To remove this message,
+use \code{col_types = cols()}.
+}}
+
+\item{locale}{The locale controls defaults that vary from place to place.
+The default locale is US-centric (like R), but you can use
+\code{\link[readr:locale]{locale()}} to create your own locale that controls things like
+the default time zone, encoding, decimal mark, big mark, and day/month
+names.}
+
+\item{na}{Character vector of strings to interpret as missing values. Set this
+option to \code{character()} to indicate no missing values.}
+
+\item{quoted_na}{Should missing values inside quotes be treated as missing
+values (the default) or strings.}
+
 \item{quote}{Single character used to quote strings.}
 
-\item{log}{(Deprecated) Log this function call to a log.md file?}
+\item{comment}{A string used to identify comments. Any text after the
+comment characters will be silently ignored.}
 
-\item{log_details}{(Deprecated) If log is TRUE, additional notes to include with the log entry.}
+\item{trim_ws}{Should leading and trailing whitespace be trimmed from
+each field before parsing it?}
+
+\item{skip}{Number of lines to skip before reading data.}
+
+\item{n_max}{Maximum number of records to read.}
+
+\item{guess_max}{Maximum number of records to use for guessing column types.}
+
+\item{progress}{Display a progress bar? By default it will only display
+in an interactive session and not while knitting a document. The display
+is updated every 50,000 values and will only display if estimated reading
+time is 5 seconds or more. The automatic progress bar can be disabled by
+setting option \code{readr.show_progress} to \code{FALSE}.}
+
+\item{skip_empty_rows}{Should blank rows be ignored altogether? i.e. If this
+option is \code{TRUE} then blank rows will not be represented at all.  If it is
+\code{FALSE} then they will be represented by \code{NA} values in all the columns.}
 }
 \description{
 Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  \code{\link[readr]{read_csv}}.
