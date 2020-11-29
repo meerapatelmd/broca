@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write a List of Dataframes as a Temporary Excel — write_temp_xlsx • broca</title>
+<title>Read an Entire Excel Workbook — read_full_excel • broca</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Write a List of Dataframes as a Temporary Excel — write_temp_xlsx" />
-<meta property="og:description" content="Write a temporary Excel file using write.xlsx. The Path to the file is returned." />
+<meta property="og:title" content="Read an Entire Excel Workbook — read_full_excel" />
+<meta property="og:description" content="Read an Entire Excel Workbook into a list of dataframes named by the original spreadsheet name. Arguments are passed to read_excel for each sheet." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,39 +119,96 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write a List of Dataframes as a Temporary Excel</h1>
+    <h1>Read an Entire Excel Workbook</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/broca/blob/master/R/excel.R'><code>R/excel.R</code></a></small>
-    <div class="hidden name"><code>write_temp_xlsx.Rd</code></div>
+    <div class="hidden name"><code>read_full_excel.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Write a temporary Excel file using <code><a href='https://rdrr.io/pkg/openxlsx/man/write.xlsx.html'>write.xlsx</a></code>. The Path to the file is returned.</p>
+    <p>Read an Entire Excel Workbook into a list of dataframes named by the original spreadsheet name. Arguments are passed to <code><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></code> for each sheet.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>write_temp_xlsx</span><span class='op'>(</span><span class='va'>x</span>, asTable <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span>, log <span class='op'>=</span> <span class='st'>"DEPRECATED"</span>, log_details <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>read_full_excel</span><span class='op'>(</span>
+  <span class='va'>file</span>,
+  col_names <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  col_types <span class='op'>=</span> <span class='st'>"text"</span>,
+  na <span class='op'>=</span> <span class='st'>""</span>,
+  trim_ws <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  skip <span class='op'>=</span> <span class='fl'>0</span>,
+  n_max <span class='op'>=</span> <span class='cn'>Inf</span>,
+  guess_max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='va'>n_max</span><span class='op'>)</span>,
+  progress <span class='op'>=</span> <span class='fu'>readxl_progress</span><span class='op'>(</span><span class='op'>)</span>,
+  .name_repair <span class='op'>=</span> <span class='st'>"unique"</span>,
+  log <span class='op'>=</span> <span class='st'>"DEPRECATED"</span>,
+  log_details <span class='op'>=</span> <span class='st'>""</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>object or a list of objects that can be handled by <code><a href='https://rdrr.io/pkg/openxlsx/man/writeData.html'>writeData</a></code> to write to file</p></td>
+      <th>file</th>
+      <td><p>File path.</p></td>
     </tr>
     <tr>
-      <th>asTable</th>
-      <td><p>write using writeDataTable as opposed to writeData</p></td>
+      <th>col_names</th>
+      <td><p><code>TRUE</code> to use the first row as column names, <code>FALSE</code> to get
+default names, or a character vector giving a name for each column. If user
+provides <code>col_types</code> as a vector, <code>col_names</code> can have one entry per
+column, i.e. have the same length as <code>col_types</code>, or one entry per
+unskipped column.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>optional parameters to pass to functions:</p><ul>
-<li><p>createWorkbook</p></li>
-<li><p>addWorksheet</p></li>
-<li><p>writeData</p></li>
-<li><p>freezePane</p></li>
-<li><p>saveWorkbook</p></li>
-</ul>
-
-<p>see details.</p></td>
+      <th>col_types</th>
+      <td><p>Either <code>NULL</code> to guess all from the spreadsheet or a
+character vector containing one entry per column from these options:
+"skip", "guess", "logical", "numeric", "date", "text" or "list". If exactly
+one <code>col_type</code> is specified, it will be recycled. The content of a cell in
+a skipped column is never read and that column will not appear in the data
+frame output. A list cell loads a column as a list of length 1 vectors,
+which are typed using the type guessing logic from <code>col_types = NULL</code>, but
+on a cell-by-cell basis.</p></td>
+    </tr>
+    <tr>
+      <th>na</th>
+      <td><p>Character vector of strings to interpret as missing values. By
+default, readxl treats blank cells as missing data.</p></td>
+    </tr>
+    <tr>
+      <th>trim_ws</th>
+      <td><p>Should leading and trailing whitespace be trimmed?</p></td>
+    </tr>
+    <tr>
+      <th>skip</th>
+      <td><p>Minimum number of rows to skip before reading anything, be it
+column names or data. Leading empty rows are automatically skipped, so this
+is a lower bound. Ignored if <code>range</code> is given.</p></td>
+    </tr>
+    <tr>
+      <th>n_max</th>
+      <td><p>Maximum number of data rows to read. Trailing empty rows are
+automatically skipped, so this is an upper bound on the number of rows in
+the returned tibble. Ignored if <code>range</code> is given.</p></td>
+    </tr>
+    <tr>
+      <th>guess_max</th>
+      <td><p>Maximum number of data rows to use for guessing column
+types.</p></td>
+    </tr>
+    <tr>
+      <th>progress</th>
+      <td><p>Display a progress spinner? By default, the spinner appears
+only in an interactive session, outside the context of knitting a document,
+and when the call is likely to run for several seconds or more. See
+<code><a href='https://readxl.tidyverse.org/reference/readxl_progress.html'>readxl_progress()</a></code> for more details.</p></td>
+    </tr>
+    <tr>
+      <th>.name_repair</th>
+      <td><p>Handling of column names. By default, readxl ensures
+column names are not empty and are unique. If the tibble package version is
+recent enough, there is full support for <code>.name_repair</code> as documented in
+<code><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble::tibble()</a></code>. If an older version of tibble is present, readxl falls
+back to name repair in the style of tibble v1.4.2.</p></td>
     </tr>
     <tr>
       <th>log</th>
@@ -165,12 +222,12 @@
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other write functions: 
-<code><a href='write_full_excel.html'>write_full_excel</a>()</code></p>
+    <div class='dont-index'><p><code><a href='https://readxl.tidyverse.org/reference/excel_sheets.html'>excel_sheets</a></code>,<code><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></code>
+ <code><a href='https://purrr.tidyverse.org/reference/set_names.html'>set_names</a></code>,<code><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></code></p>
 <p>Other excel functions: 
 <code><a href='is_excel.html'>is_excel</a>()</code>,
-<code><a href='read_full_excel.html'>read_full_excel</a>()</code>,
-<code><a href='write_full_excel.html'>write_full_excel</a>()</code></p></div>
+<code><a href='write_full_excel.html'>write_full_excel</a>()</code>,
+<code><a href='write_temp_xlsx.html'>write_temp_xlsx</a>()</code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
