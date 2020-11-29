@@ -4,11 +4,13 @@
 #' @export
 #' @importFrom tibble tribble
 #' @importFrom readr write_tsv
+#' @description (Deprecated)
 
 create_log.md <-
         function() {
                 if (!file.exists("log.md")) {
 
+                        .Deprecated()
                         new_log <-
                         tibble::tribble(~Timestamp,
                                         ~`Activity Type`,
@@ -33,6 +35,7 @@ create_log.md <-
 #' @export
 #' @importFrom readr write_tsv
 #' @importFrom tibble tibble
+#' @description (Deprecated)
 
 log_this <-
         function(path_to_file,
@@ -40,6 +43,7 @@ log_this <-
                  function_used = "",
                  details = "") {
 
+                .Deprecated()
                 create_log.md()
 
                 readr::write_tsv(tibble::tibble(Timestamp = Sys.time(),
