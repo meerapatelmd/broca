@@ -1,16 +1,39 @@
 Package: broca
-Title: Helpers for Reading and Writing Data  
+Title: Helpers for Reading and Writing Data
 Version: 0.1.0
-Authors@R: person("Meera", "Patel, MD", email = "patelmeeray@gmail.com", role = c("aut", "cre"),
-                          comment = c(ORCID = "0000-0002-3401-3948")) 
-Description: 
-        Functions that have simplified reading and writing tabular files, such as reading all fields as text data types to prevent parsing failures that often occur on read. Temporary tabular files can also be written by a single function call. By extension, View functions allow the user to write tabular data to temporary files and opening in Excel directly from the console. A logging feature enables logging of broca function calls to a log.md file in the User's working directory, but will likely be deprecated in the future in favor of other logging packages that are much more robust. Conversion functions document files between docx, GitHub-flavored Markdown, Markdown, and RMarkdown and tabular data files from Excel to csv.
+Authors@R: 
+    person(given = "Meera",
+           family = "Patel, MD",
+           role = c("aut", "cre"),
+           email = "patelmeeray@gmail.com",
+           comment = c(ORCID = "0000-0002-3401-3948"))
+Description:  Functions that have simplified reading and
+    writing tabular files, such as reading all fields as text data types
+    to prevent parsing failures that often occur on read. Temporary
+    tabular files can also be written by a single function call. By
+    extension, View functions allow the user to write tabular data to
+    temporary files and opening in Excel directly from the console. A
+    logging feature enables logging of broca function calls to a log.md
+    file in the User's working directory, but will likely be deprecated in
+    the future in favor of other logging packages that are much more
+    robust. Conversion functions document files between docx,
+    GitHub-flavored Markdown, Markdown, and RMarkdown and tabular data
+    files from Excel to csv.
 License: Apache License 2.0
+URL: https://meerapatelmd.github.io/broca/,
+    https://github.com/meerapatelmd/broca/
+BugReports: https://github.com/meerapatelmd/broca/issues/
+Imports: 
+    dplyr,
+    magrittr,
+    openxlsx,
+    purrr,
+    readr,
+    readxl,
+    rmarkdown,
+    secretary,
+    tibble,
+    utils
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Imports:     dplyr,    magrittr,    openxlsx,    purrr,    readr,    rmarkdown,    secretary,    tibble,    utils,    readxl
-URL: https://meerapatelmd.github.io/broca/, https://github.com/meerapatelmd/broca/
-BugReports: https://github.com/meerapatelmd/broca/issues/
-
-
