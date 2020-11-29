@@ -5,7 +5,7 @@
 * Add `read_cb_*` shortcut functions for reading from clipboard  
 * Add examples for `clipboard` function family  
 * Migrate `makeArgs` and `declare` functions to [easyBakeOven R Package](https://meerapatelmd.github.io/easyBakeOven) 
-* Add documentation for `csv` function family  
+* Add documentation for `csv` and `delim` function family  
 
 # broca 0.1.0
 
