@@ -18,8 +18,6 @@ read_gsheet(
 )
 }
 \arguments{
-\item{drive_path}{Dribble, url, or id passed as `path` to the `googledrive package` functions`}
-
 \item{col_names}{\code{TRUE} to use the first row as column names, \code{FALSE} to get
 default names, or a character vector giving a name for each column. If user
 provides \code{col_types} as a vector, \code{col_names} can have one entry per

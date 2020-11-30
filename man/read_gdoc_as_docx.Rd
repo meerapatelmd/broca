@@ -6,9 +6,6 @@
 \usage{
 read_gdoc_as_docx(drive_path)
 }
-\arguments{
-\item{drive_path}{Dribble, url, or id passed as `path` to the `googledrive package` functions`}
-}
 \description{
 Read Google Doc as Officer Package Object
 }
