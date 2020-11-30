@@ -21,6 +21,7 @@ URL: https://meerapatelmd.github.io/broca/,
 BugReports: https://github.com/meerapatelmd/broca/issues/
 Imports: 
     dplyr,
+    googledrive,
     magrittr,
     openxlsx,
     purrr,
