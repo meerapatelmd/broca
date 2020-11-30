@@ -27,16 +27,25 @@ navbar:
 reference:
     - title: Clipboard
       contents:
-      - ends_with("clipboard")
+      - contains("_cb")
     - title: Write
       contents:
-      - starts_with("write")
+      - contains("write")
     - title: Read
       contents:
       - contains("read")
     - title: View
       contents:
       - starts_with("view")
+    - title: Conversion
+      contents:
+      - contains("docx")
+    - title: Logicals
+      contents:
+      - starts_with("is")
+    - title: Make
+      contents:
+      - make_trbl
 
 
 
