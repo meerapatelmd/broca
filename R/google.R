@@ -4,7 +4,7 @@
 #' @param drive_path    Dribble, url, or id passed as `path` to the `googledrive package` functions`
 #'
 #' @name google
-#' @noRd
+#' @keywords internal
 NULL
 
 #' @title
