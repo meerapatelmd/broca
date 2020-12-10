@@ -43,7 +43,7 @@ read_full_excel <-
            skip = 0,
            n_max = Inf,
            guess_max = min(1000, n_max),
-           progress = readxl_progress(),
+           progress = readxl::readxl_progress(),
            .name_repair = "unique",
            log = "DEPRECATED",
            log_details = "") {
