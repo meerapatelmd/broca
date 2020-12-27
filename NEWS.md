@@ -6,6 +6,7 @@
 * Add examples for `clipboard` function family  
 * Migrate `makeArgs` and `declare` functions to [easyBakeOven R Package](https://meerapatelmd.github.io/easyBakeOven) 
 * Add documentation for `csv`, `excel`, and `delim` function family  
+* Add Google Suite functions  
 
 # broca 0.1.0
 
