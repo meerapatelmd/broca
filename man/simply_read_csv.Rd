@@ -8,7 +8,7 @@ simply_read_csv(
   file,
   col_names = TRUE,
   col_types = readr::cols(.default = "c"),
-  locale = default_locale(),
+  locale = readr::default_locale(),
   na = c("", "NA"),
   quoted_na = TRUE,
   quote = "\\"",
@@ -122,7 +122,9 @@ option is \code{TRUE} then blank rows will not be represented at all.  If it is
 \code{FALSE} then they will be represented by \code{NA} values in all the columns.}
 }
 \description{
-Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  \code{\link[readr]{read_csv}}.
+Read a CSV with all columns defaulted to "character" data
+types to prevent parsing failures by
+\code{\link[readr]{read_csv}}.
 }
 \seealso{
 Other csv functions: 

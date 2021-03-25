@@ -10,7 +10,8 @@ is_csv(file)
 \item{file}{File path.}
 }
 \description{
-Check if the file has a name that matches the ".csv" file extension pattern.
+Check if the file has a name that matches the ".csv"
+file extension pattern.
 }
 \seealso{
 Other logical functions: 
