@@ -47,7 +47,9 @@
 
 
 <meta property="og:title" content="Read a CSV as All Text — simply_read_csv" />
-<meta property="og:description" content="Read a CSV with all columns defaulted to &quot;character&quot; data types to prevent parsing failures by  read_csv." />
+<meta property="og:description" content="Read a CSV with all columns defaulted to &quot;character&quot; data
+types to prevent parsing failures by
+read_csv." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">broca</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -88,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,7 +104,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/patelm9/broca/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -125,14 +127,16 @@
     </div>
 
     <div class="ref-description">
-    <p>Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  <code><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></code>.</p>
+    <p>Read a CSV with all columns defaulted to "character" data
+types to prevent parsing failures by
+<code><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>simply_read_csv</span><span class='op'>(</span>
   <span class='va'>file</span>,
   col_names <span class='op'>=</span> <span class='cn'>TRUE</span>,
   col_types <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/cols.html'>cols</a></span><span class='op'>(</span>.default <span class='op'>=</span> <span class='st'>"c"</span><span class='op'>)</span>,
-  locale <span class='op'>=</span> <span class='fu'>default_locale</span><span class='op'>(</span><span class='op'>)</span>,
+  locale <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/locale.html'>default_locale</a></span><span class='op'>(</span><span class='op'>)</span>,
   na <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>""</span>, <span class='st'>"NA"</span><span class='op'>)</span>,
   quoted_na <span class='op'>=</span> <span class='cn'>TRUE</span>,
   quote <span class='op'>=</span> <span class='st'>"\""</span>,
