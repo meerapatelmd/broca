@@ -2,7 +2,8 @@
 #' Does the file have a csv extension?
 #'
 #' @description
-#' Check if the file has a name that matches the ".csv" file extension pattern.
+#' Check if the file has a name that matches the ".csv"
+#' file extension pattern.
 #'
 #' @inheritParams args
 #' @rdname is_csv
@@ -19,19 +20,22 @@ is_csv <-
 #' Read a CSV as All Text
 #'
 #' @description
-#' Read a CSV with all columns defaulted to "character" data types to prevent parsing failures by  \code{\link[readr]{read_csv}}.
+#' Read a CSV with all columns defaulted to "character" data
+#' types to prevent parsing failures by
+#' \code{\link[readr]{read_csv}}.
 #'
 #' @importFrom readr read_csv
 #' @inheritParams readr::read_csv
 #' @rdname simply_read_csv
 #' @family csv functions
 #' @export
+#' @import readr
 
 simply_read_csv <-
   function(file,
            col_names = TRUE,
            col_types = readr::cols(.default = "c"),
-           locale = default_locale(),
+           locale = readr::default_locale(),
            na = c("", "NA"),
            quoted_na = TRUE,
            quote = "\"",
@@ -86,6 +90,7 @@ simply_read_csv <-
 #' @rdname simply_write_csv
 #' @family csv functions
 #' @export
+#' @import readr
 
 simply_write_csv <-
   function(x,
