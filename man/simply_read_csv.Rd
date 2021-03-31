@@ -9,7 +9,7 @@ simply_read_csv(
   col_names = TRUE,
   col_types = readr::cols(.default = "c"),
   locale = readr::default_locale(),
-  na = c("", "NA"),
+  na = "NA",
   quoted_na = TRUE,
   quote = "\\"",
   comment = "",

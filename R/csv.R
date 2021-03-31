@@ -36,7 +36,7 @@ simply_read_csv <-
            col_names = TRUE,
            col_types = readr::cols(.default = "c"),
            locale = readr::default_locale(),
-           na = c("", "NA"),
+           na = "NA",
            quoted_na = TRUE,
            quote = "\"",
            comment = "",
@@ -95,7 +95,7 @@ simply_read_csv <-
 simply_write_csv <-
   function(x,
            file,
-           na = "NA",
+           na = "",
            append = FALSE,
            col_names = !append,
            quote_escape = "double",

@@ -7,7 +7,7 @@
 simply_write_csv(
   x,
   file,
-  na = "NA",
+  na = "",
   append = FALSE,
   col_names = !append,
   quote_escape = "double",
