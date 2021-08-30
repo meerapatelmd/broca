@@ -121,7 +121,7 @@ knit_asis_rmd_table_value <-
                         c(
                                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Value"),
                                 "```{r,echo=FALSE}",
-                                glue::glue("readr::read_csv('{file}')"),
+                                glue::glue("DT::datatable(readr::read_csv('{file}'))"),
                                 "```",
                                 "")
 
