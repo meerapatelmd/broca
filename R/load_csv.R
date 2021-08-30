@@ -48,6 +48,36 @@ show_csv.rmd.table <-
 #' @importFrom knitr opts_knit
 #' @importFrom glue glue
 
+# knit_asis_rmd_table_metadata <-
+#         function(heading_level = 2,
+#                  file,
+#                  options = NULL,
+#                  envir = parent.frame(),
+#                  quiet = TRUE,
+#                  ...) {
+#
+#         csv_rmd_table <-
+#                 read_csv_as_rmd_table(file = file)
+#
+#
+#         knitr::opts_knit$set(output.dir =
+#                                      getwd())
+#
+#         metadata <-
+#         c(
+#                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Metadata"),
+#                 glue::glue("Created On:\t{csv_rmd_table$CreatedOn}"),
+#                 glue::glue("Modified On:\t{csv_rmd_table$ModifiedOn}"),
+#                 glue::glue("Filename:\t{csv_rmd_table$Filename}"),
+#                 glue::glue("Md5Sum:\t\t{csv_rmd_table$Md5Sum}"),
+#                 glue::glue("Size:\t\t{prettyunits::pretty_bytes(csv_rmd_table$Size)}"),
+#                 "")
+#
+#
+#         cat(metadata,
+#             sep = "  \n")
+# }
+
 knit_asis_rmd_table_metadata <-
         function(heading_level = 2,
                  file,
@@ -63,20 +93,40 @@ knit_asis_rmd_table_metadata <-
         knitr::opts_knit$set(output.dir =
                                      getwd())
 
+        heading <-
+                glue::glue("{paste(rep('#',heading_level), collapse = '')} Metadata  \n")
+
         metadata <-
-        c(
-                glue::glue("{paste(rep('#',heading_level), collapse = '')} Metadata"),
-                glue::glue("Created On:\t{csv_rmd_table$CreatedOn}"),
-                glue::glue("Modified On:\t{csv_rmd_table$ModifiedOn}"),
-                glue::glue("Filename:\t{csv_rmd_table$Filename}"),
-                glue::glue("Md5Sum:\t\t{csv_rmd_table$Md5Sum}"),
-                glue::glue("Size:\t\t{prettyunits::pretty_bytes(csv_rmd_table$Size)}"),
-                "")
+        list(
+                `Created On`  = csv_rmd_table$CreatedOn,
+                `Modified On` = csv_rmd_table$ModifiedOn,
+                `Filename`    = csv_rmd_table$Filename,
+                `Md5Sum`      = csv_rmd_table$Md5Sum,
+                `Size`        = prettyunits::pretty_bytes(csv_rmd_table$Size))
 
 
-        cat(metadata,
+        text <-
+                c(heading,
+                  "```{r,echo=FALSE}",
+                  "easyBakeOven::print_list(metadata)",
+                  "```",
+                  ""
+                  )
+
+        results <-
+        knitr::knit_child(
+                text = text,
+                options = options,
+                envir = envir,
+                quiet = quiet,
+                ...)
+
+
+        cat(results,
             sep = "  \n")
 }
+
+
 
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
