@@ -108,7 +108,7 @@ knit_asis_rmd_table_metadata <-
         text <-
                 c(heading,
                   "```{r,echo=FALSE}",
-                  "easyBakeOven::print_list(metadata)",
+                  glue::glue("easyBakeOven::print_list({metadata})"),
                   "```",
                   ""
                   )
