@@ -120,7 +120,7 @@ knit_asis_rmd_table_value <-
                 text <-
                         c(
                                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Value"),
-                                "```{r}",
+                                "```{r,echo=FALSE}",
                                 glue::glue("readr::read_csv('{file}')"),
                                 "```",
                                 "")
@@ -182,7 +182,7 @@ read_csv_as_rmd_table <-
                  skip = 0,
                  n_max = Inf,
                  guess_max = min(1000, n_max),
-                 progress = show_progress(),
+                 progress = readr::show_progress(),
                  skip_empty_rows = TRUE) {
 
                 x <-

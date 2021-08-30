@@ -1,0 +1,31 @@
+---
+title: "R Markdown Tables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{R Markdown Tables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(broca)
+```
+
+```{r}
+read_csv_as_rmd_table(file = "test_data.csv",
+                      progress = FALSE)
+```
+
+
+```{r,echo=FALSE,results='asis'}
+knit_asis_rmd_table_metadata(file = "test_data.csv")
+knit_asis_rmd_table_value(file = "test_data.csv")
+```
+
