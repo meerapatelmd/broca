@@ -1,13 +1,13 @@
 Package: broca
 Title: Helpers for Reading and Writing Data
-Version: 0.2.1
+Version: 0.2.1.9000
 Authors@R: 
     person(given = "Meera",
            family = "Patel, MD",
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com",
            comment = c(ORCID = "0000-0002-3401-3948"))
-Description:  Functions that have simplified reading and
+Description: Functions that have simplified reading and
     writing tabular files, such as reading all fields as text data types
     to prevent parsing failures that often occur on read. Temporary
     tabular files can also be written by a single function call. By
