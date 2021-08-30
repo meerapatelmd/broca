@@ -143,19 +143,9 @@ write_temp_csv <-
            append = FALSE,
            col_names = !append,
            quote_escape = double,
-           eol = "\n",
-           log = "DEPRECATED",
-           log_details = "") {
-    temp_file <- tempfile(fileext = ".csv")
+           eol = "\n") {
 
-    if (log == TRUE) {
-      log_this(
-        path_to_file = temp_file,
-        activity_type = "write",
-        function_used = "write_temp_csv",
-        details = log_details
-      )
-    }
+    temp_file <- tempfile(fileext = ".csv")
 
     simply_write_csv(
       x = x,

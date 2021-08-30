@@ -18,6 +18,7 @@ Other logical functions:
 \code{\link{is_excel}()}
 
 Other csv functions: 
+\code{\link{read_csv_as_rmd_table}()},
 \code{\link{simply_read_csv}()},
 \code{\link{simply_write_csv}()},
 \code{\link{write_temp_csv}()}

@@ -30,9 +30,7 @@ always be quoted.}
 will append to existing file. In both cases, if the file does not exist a new
 file is created.}
 
-\item{quote_escape}{The type of escaping to use for quoted values, one of
-\code{"double"}, \code{"backslash"} or \code{"none"}. You can also use \code{FALSE}, which is
-equivalent to "none". The default is \code{"double"}, which is expected format for Excel.}
+\item{quote_escape}{\Sexpr[results=rd, stage=render]{lifecycle::badge("deprecated")}, use the \code{escape} argument instead.}
 
 \item{eol}{The end of line character to use. Most commonly either \code{"\n"} for
 Unix style newlines, or \code{"\r\n"} for Windows style newlines.}
