@@ -159,6 +159,32 @@ knit_asis_rmd_table_value <-
         }
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param table PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @rdname knit_asis
+#' @export
+
+knit_asis <-
+        function(table) {
+
+                if ("rmd.table" %in% class(table)) {
+
+                        knit_asis_rmd_table_metadata(csv_rmd_table = table)
+                        knit_asis_rmd_table_value(csv_rmd_table = table)
+
+
+
+                }
+        }
 
 
 
