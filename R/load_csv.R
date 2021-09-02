@@ -2,17 +2,16 @@ show_csv.rmd.table <-
         function() {
 
                 cli::cli_h1("Metadata")
-                cli::cat_bullet(
+                cli::cat_line(
                         c(
                         glue::glue("Created On:\t{.self$CreatedOn}"),
                         glue::glue("Modified On:\t{.self$ModifiedOn}"),
                         glue::glue("Filename:\t{.self$Filename}"),
                         glue::glue("Md5Sum:\t{.self$Md5Sum}"),
                         glue::glue("Size:\t\t{prettyunits::pretty_bytes(.self$Size)}",
-                                  )),
-                        bullet = "en_dash")
+                                  )))
 
-                cli::cli_h1("Data")
+                cli::cli_h1("Value")
                 self_hux <-
                         huxtable::hux(.self$Value) %>%
                         huxtable::theme_article()
