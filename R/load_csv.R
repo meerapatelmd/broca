@@ -142,7 +142,7 @@ knit_asis_rmd_table_value <-
                         c(
                                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Value"),
                                 "```{r,echo=FALSE}",
-                                glue::glue("DT::datatable(readr::read_csv('{tmp_csv}'))"),
+                                glue::glue("DT::datatable(suppressMessages(readr::read_csv('{tmp_csv}')))"),
                                 "```",
                                 "")
 
