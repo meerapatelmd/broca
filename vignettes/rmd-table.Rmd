@@ -28,5 +28,6 @@ test_rmd_table
 
 ```{r,results='asis'}
 knit_asis_rmd_table_metadata(csv_rmd_table = test_rmd_table)
+knit_asis_rmd_table_value(csv_rmd_table = test_rmd_table)
 ```
 

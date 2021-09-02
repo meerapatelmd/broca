@@ -134,11 +134,15 @@ knit_asis_rmd_table_value <-
                  envir = parent.frame(),
                  quiet = TRUE,
                  ...) {
+
+                tmp_csv <- tempfile(fileext = ".csv")
+                readr::write_csv(x = csv_rmd_table$Value,
+                                 file = tmp_csv)
                 text <-
                         c(
                                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Value"),
                                 "```{r,echo=FALSE}",
-                                glue::glue("DT::datatable(readr::read_csv('{file}'))"),
+                                glue::glue("DT::datatable(readr::read_csv('{tmp_csv}'))"),
                                 "```",
                                 "")
 
