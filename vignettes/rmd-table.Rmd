@@ -25,6 +25,10 @@ read_csv_as_rmd_table(file = "test_data.csv",
 test_rmd_table
 ```
 
+```{r,results='asis'}
+knit_asis(test_rmd_table)
+```
+
 
 ```{r,results='asis'}
 knit_asis_rmd_table_metadata(csv_rmd_table = test_rmd_table)

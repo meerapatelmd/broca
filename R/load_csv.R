@@ -98,7 +98,7 @@ knit_asis_rmd_table_metadata <-
                  Size        = prettyunits::pretty_bytes(csv_rmd_table$Size))
 
         out <- easyBakeOven::print_list(metadata)
-        cat(out)
+        cat(heading, out)
 }
 
 
