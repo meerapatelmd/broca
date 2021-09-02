@@ -80,50 +80,25 @@ show_csv.rmd.table <-
 
 knit_asis_rmd_table_metadata <-
         function(heading_level = 2,
-                 file,
+                 csv_rmd_table,
                  options = NULL,
                  envir = parent.frame(),
                  quiet = TRUE,
                  ...) {
-
-        csv_rmd_table <-
-                read_csv_as_rmd_table(file = file)
-
-
-        knitr::opts_knit$set(output.dir =
-                                     getwd())
 
         heading <-
                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Metadata  \n")
 
         metadata <-
         list(
-                `Created On`  = csv_rmd_table$CreatedOn,
-                `Modified On` = csv_rmd_table$ModifiedOn,
-                `Filename`    = csv_rmd_table$Filename,
-                `Md5Sum`      = csv_rmd_table$Md5Sum,
-                `Size`        = prettyunits::pretty_bytes(csv_rmd_table$Size))
+                 `Created On`  = as.character(csv_rmd_table$CreatedOn),
+                 `Modified On` = as.character(csv_rmd_table$ModifiedOn),
+                 Filename    = csv_rmd_table$Filename,
+                 Md5Sum      = csv_rmd_table$Md5Sum,
+                 Size        = prettyunits::pretty_bytes(csv_rmd_table$Size))
 
-
-        text <-
-                c(heading,
-                  "```{r,echo=FALSE}",
-                  glue::glue("easyBakeOven::print_list({metadata})"),
-                  "```",
-                  ""
-                  )
-
-        results <-
-        knitr::knit_child(
-                text = text,
-                options = options,
-                envir = envir,
-                quiet = quiet,
-                ...)
-
-
-        cat(results,
-            sep = "  \n")
+        out <- easyBakeOven::print_list(metadata)
+        cat(out)
 }
 
 
@@ -258,7 +233,7 @@ read_csv_as_rmd_table <-
                     CreatedOn = file.info(file)$ctime,
                     ModifiedOn = file.info(file)$mtime,
                     Filename = basename(file),
-                    Md5Sum   = tools::md5sum(file),
+                    Md5Sum   = unname(tools::md5sum(file)),
                     Size = file.info(file)$size,
                     Value = x)
         }

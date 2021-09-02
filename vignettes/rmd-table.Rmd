@@ -19,13 +19,14 @@ library(broca)
 ```
 
 ```{r}
+test_rmd_table <- 
 read_csv_as_rmd_table(file = "test_data.csv",
                       progress = FALSE)
+test_rmd_table
 ```
 
 
 ```{r,echo=FALSE,results='asis'}
-knit_asis_rmd_table_metadata(file = "test_data.csv")
-knit_asis_rmd_table_value(file = "test_data.csv")
+knit_asis_rmd_table_metadata(csv_rmd_table = test_rmd_table)
 ```
 

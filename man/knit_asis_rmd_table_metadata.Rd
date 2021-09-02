@@ -6,7 +6,7 @@
 \usage{
 knit_asis_rmd_table_metadata(
   heading_level = 2,
-  file,
+  csv_rmd_table,
   options = NULL,
   envir = parent.frame(),
   quiet = TRUE,
@@ -16,8 +16,6 @@ knit_asis_rmd_table_metadata(
 \arguments{
 \item{heading_level}{PARAM_DESCRIPTION, Default: 2}
 
-\item{file}{PARAM_DESCRIPTION}
-
 \item{options}{PARAM_DESCRIPTION, Default: NULL}
 
 \item{envir}{PARAM_DESCRIPTION, Default: parent.frame()}
@@ -25,6 +23,8 @@ knit_asis_rmd_table_metadata(
 \item{quiet}{PARAM_DESCRIPTION, Default: TRUE}
 
 \item{...}{PARAM_DESCRIPTION}
+
+\item{file}{PARAM_DESCRIPTION}
 }
 \value{
 OUTPUT_DESCRIPTION
