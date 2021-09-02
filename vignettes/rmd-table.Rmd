@@ -26,7 +26,7 @@ test_rmd_table
 ```
 
 
-```{r,echo=FALSE,results='asis'}
+```{r,results='asis'}
 knit_asis_rmd_table_metadata(csv_rmd_table = test_rmd_table)
 ```
 

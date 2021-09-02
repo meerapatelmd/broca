@@ -129,19 +129,11 @@ knit_asis_rmd_table_metadata <-
 
 knit_asis_rmd_table_value <-
         function(heading_level = 2,
-                 file,
+                 csv_rmd_table,
                  options = NULL,
                  envir = parent.frame(),
                  quiet = TRUE,
                  ...) {
-
-                csv_rmd_table <-
-                        read_csv_as_rmd_table(file = file)
-
-
-                knitr::opts_knit$set(output.dir =
-                                             getwd())
-
                 text <-
                         c(
                                 glue::glue("{paste(rep('#',heading_level), collapse = '')} Value"),
