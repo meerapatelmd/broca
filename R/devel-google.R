@@ -10,7 +10,6 @@ NULL
 #' Read Google Doc as Officer Package Object
 #'
 #' @importFrom googledrive drive_get drive_download
-#' @importFrom officer read_docx
 #'
 #' @export
 #' @rdname read_gdoc_as_docx
@@ -37,9 +36,6 @@ read_gdoc_as_docx <-
                         path = temp_file,
                         verbose = TRUE
                 )
-
-
-                officer::read_docx(path = temp_file)
 
         }
 

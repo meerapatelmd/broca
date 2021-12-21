@@ -7,20 +7,15 @@
 write_temp_xlsx(x, asTable = FALSE, ..., log = "DEPRECATED", log_details = "")
 }
 \arguments{
-\item{x}{object or a list of objects that can be handled by \code{\link[openxlsx]{writeData}} to write to file}
+\item{x}{A data.frame or a (named) list of objects that can be handled by
+\code{\link[openxlsx]{writeData}} or \code{\link[openxlsx]{writeDataTable}} to write to file}
 
-\item{asTable}{write using writeDataTable as opposed to writeData}
+\item{asTable}{If \code{TRUE} will use \code{\link[openxlsx]{writeDataTable}} rather
+than \code{\link[openxlsx]{writeData}} to write \code{x} to the file (default: 
+\code{FALSE})}
 
-\item{...}{optional parameters to pass to functions:
-\itemize{
-  \item{createWorkbook}
-  \item{addWorksheet}
-  \item{writeData}
-  \item{freezePane}
-  \item{saveWorkbook}
-}
-
-see details.}
+\item{...}{Additional arguments passed to \code{\link[openxlsx]{writeData}}, 
+\code{\link[openxlsx]{writeDataTable}}, \code{\link[openxlsx]{setColWidths}}}
 
 \item{log}{(Deprecated) Log this function call to a log.md file?}
 
